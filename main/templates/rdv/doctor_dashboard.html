@@ -1,0 +1,288 @@
+<!-- doctor_dashboard.html -->
+{% extends 'maintemp/app_base.html' %}
+{% comment %} {% block booutons %}
+                        <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="{% url 'home' %}">Home</a>
+                        </li>
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../feedback/all">Feedbacks</a>
+                        </li>-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../feedback/all" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Feedbacks</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../feedback/all">List</a></li>
+                                 <li><a class="dropdown-item" href="../feedback/create">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../forums/" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Forum</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../forums/">List</a></li>
+                                <li><a class="dropdown-item" href="../../forums/create/">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../tips">Tips</a>
+                        </li>-->
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../tips" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tips</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../tips">List</a></li>
+                                <li><a class="dropdown-item" href="../../tips/admin_upload">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">News</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="news.html">News Listing</a></li>
+
+                                <li><a class="dropdown-item" href="news-detail.html">News Detail</a></li>
+                            </ul>
+                        </li>-->
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../events/list">Events</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <!-- Dynamic Dashboard Link for Logged-In Users -->
+                        <li class="nav-item">
+                            {% if user.is_doctor %}
+                                <a class="nav-link" href="{% url 'doctor_dashboard' %}">Appointments</a>
+                            {% elif user.is_patient %}
+                                <a class="nav-link" href="{% url 'patient_dashboard' %}">Appointments</a>
+                            {% endif %}
+                        </li>
+                    {% else %}
+                        <!-- Redirect to Login Page if User is Not Logged In -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/login/">Appointments</a>
+                        </li>
+                    {% endif %}
+
+                        <li class="nav-item ms-3 d-flex align-items-center">
+    {% if user.is_authenticated %}
+        <a class="nav-link custom-btn custom-border-btn btn" href="/users/logout/">Logout</a>
+        <span class="username-badge2 ms-2">{{ user.username }}</span>
+        <div class="contact-image-wrap2 ms-2">
+            <img src="../../static/temp/images/avatar/studio-portrait-emotional-happy-funny.jpg" class="img-fluid avatar-image2" alt="">
+        </div>
+    {% else %}
+        <a class="nav-link custom-btn custom-border-btn btn" href="/users/login/">Login</a>
+    {% endif %}
+</li>
+                    </ul>
+{% endblock %} {% endcomment %}
+{% block content %}
+
+
+<style>
+    ul {
+    transition: opacity 0.3s ease-in-out; /* Adjust duration as needed */
+    opacity: 1; /* Fully visible by default */
+}
+
+</style>
+
+
+<h1 class="display-4 text-center mb-4">Doctor Dashboard</h1>
+
+<!-- Create New Appointment Button -->
+<div class="text-center mb-4">
+    <a href="{% url 'create_appointment' %}" class="btn btn-primary btn-lg">Create New Appointment</a>
+</div>
+
+<!-- Filter Form -->
+<div class="mb-4">
+    <h2 class="h4 mb-3">Filter Appointments by Patient</h2>
+    <form method="get" action="{% url 'doctor_dashboard' %}" class="d-flex justify-content-between">
+        {{ filter_form.as_p }}
+        <div class="ms-3">
+            <button type="submit" class="btn btn-success">Apply Filter</button>
+            <a href="{% url 'doctor_dashboard' %}" class="btn btn-secondary ms-2">Reset Filter</a>
+        </div>
+    </form>
+    
+</div>
+
+<!-- Today's Appointments -->
+<div class="mb-5">
+    <h2 class="h4 mb-3">Today's Appointments</h2>
+    <ul class="list-group">
+        {% for appointment in appointments_today %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <a href="{% url 'appointment_detail' appointment.pk %}" class="text-decoration-none">
+                        <strong>{{ appointment.type }}</strong> on {{ appointment.date }} at {{ appointment.time }} with {{ appointment.patient.username }}
+                    </a>
+                </div>
+                <form method="post" action="{% url 'cancel_appointment' appointment.pk %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">Cancel</button>
+                </form>
+            </li>
+        {% empty %}
+            <li class="list-group-item">No appointments scheduled for today.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Tomorrow's Appointments -->
+<div class="mb-5">
+    <h2 class="h4 mb-3">Tomorrow's Appointments</h2>
+    <ul class="list-group">
+        {% for appointment in appointments_tomorrow %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    <a href="{% url 'appointment_detail' appointment.pk %}" class="text-decoration-none">
+                        <strong>{{ appointment.type }}</strong> on {{ appointment.date }} at {{ appointment.time }} with {{ appointment.patient.username }}
+                    </a>
+                </div>
+                <form method="post" action="{% url 'cancel_appointment' appointment.pk %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">Cancel</button>
+                </form>
+            </li>
+        {% empty %}
+            <li class="list-group-item">No appointments scheduled for tomorrow.</li>
+        {% endfor %}
+    </ul>
+</div>
+
+<!-- Past Appointments -->
+<div class="mb-5">
+    <h2 class="h4 mb-3">Past Appointments</h2>
+    <ul id="past-appointments-container" class="list-group mb-3"></ul>
+    <div id="past-pagination" class="d-flex justify-content-between">
+        {% if past_appointments.has_previous %}
+            <a href="?past_page={{ past_appointments.previous_page_number }}&upcoming_page={{ upcoming_appointments.number }}" class="btn btn-link">Previous</a>
+        {% endif %}
+        {% if past_appointments.has_next %}
+            <a href="?past_page={{ past_appointments.next_page_number }}&upcoming_page={{ upcoming_appointments.number }}" class="btn btn-link">Next</a>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Upcoming Appointments -->
+<div class="mb-5">
+    <h2 class="h4 mb-3">Upcoming Appointments</h2>
+    <ul id="upcoming-appointments-container" class="list-group mb-3"></ul>
+    <div id="upcoming-pagination" class="d-flex justify-content-between">
+        {% if upcoming_appointments.has_previous %}
+            <a href="?past_page={{ past_appointments.number }}&upcoming_page={{ upcoming_appointments.previous_page_number }}" class="btn btn-link">Previous</a>
+        {% endif %}
+        {% if upcoming_appointments.has_next %}
+            <a href="?past_page={{ past_appointments.number }}&upcoming_page={{ upcoming_appointments.next_page_number }}" class="btn btn-link">Next</a>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Notifications -->
+<div class="mb-5">
+    <h4 class="h5 mb-3">Notifications</h4>
+
+    <form method="post" action="{% url 'mark_notifications_read' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-info mt-3">Mark all as read</button>
+    </form>
+
+    <ul class="list-group">
+        {% for notification in notifications %}
+            <li class="list-group-item">{{ notification.message }} - {{ notification.timestamp }}</li>
+        {% empty %}
+            <li class="list-group-item">No new notifications.</li>
+        {% endfor %}
+    </ul>
+    <form method="post" action="{% url 'mark_notifications_read' %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-info mt-3">Mark all as read</button>
+    </form>
+</div>
+
+
+
+<script>
+    async function markNotificationsAsRead() {
+        const form = document.getElementById('mark-notifications-form');
+        const csrfToken = form.querySelector('[name=csrfmiddlewaretoken]').value;
+
+        const response = await fetch(form.action, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': csrfToken,
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (response.ok) {
+            // Reload the page or update the notifications count dynamically
+            location.reload();
+        } else {
+            alert('Failed to mark notifications as read.');
+        }
+    }
+    async function fetchAppointments(type, page) {
+        const response = await fetch(`{% url 'paginate_appointments' %}?type=${type}&page=${page}`);
+        const data = await response.json();
+
+        // Get the container for the appointments
+        const container = document.getElementById(`${type}-appointments-container`);
+
+        // Add a fade-out effect
+        container.style.opacity = 0;
+
+        // Wait for the fade-out animation
+        setTimeout(() => {
+            // Clear the container
+            container.innerHTML = "";
+
+            // Populate the container with new appointments
+            data.appointments.forEach(appointment => {
+                const li = document.createElement('li');
+                const link = document.createElement('a');
+
+                link.href = `/appointment/${appointment.id}/detail/`;
+                link.textContent = `${appointment.type} on ${appointment.date} at ${appointment.time} with ${appointment.patient}`;
+                li.appendChild(link);
+                container.appendChild(li);
+            });
+
+            // Update the pagination buttons
+            const paginationContainer = document.getElementById(`${type}-pagination`);
+            paginationContainer.innerHTML = "";
+
+            if (data.has_previous) {
+                const prevButton = document.createElement('button');
+                prevButton.textContent = "Previous";
+                prevButton.onclick = () => fetchAppointments(type, data.previous_page_number);
+                paginationContainer.appendChild(prevButton);
+            }
+
+            if (data.has_next) {
+                const nextButton = document.createElement('button');
+                nextButton.textContent = "Next";
+                nextButton.onclick = () => fetchAppointments(type, data.next_page_number);
+                paginationContainer.appendChild(nextButton);
+            }
+
+            // Add a fade-in effect
+            container.style.opacity = 1;
+        }, 300); // Match this to your CSS animation duration
+    }
+
+    // Initial load
+    document.addEventListener('DOMContentLoaded', () => {
+        fetchAppointments('past', 1);  // Load past appointments
+        fetchAppointments('upcoming', 1);  // Load upcoming appointments
+    });
+</script>
+
+
+{% endblock %}

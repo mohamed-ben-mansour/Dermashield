@@ -1,0 +1,74 @@
+{% extends 'maintemp/base.html' %}
+
+{% comment %} {% block booutons %}
+<ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+        <a class="nav-link click-scroll" href="../../users/home/">Home</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link click-scroll dropdown-toggle" href="../../feedback/all" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Feedbacks</a>
+        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+            <li><a class="dropdown-item" href="../../feedback/all">List</a></li>
+            <li><a class="dropdown-item" href="../../feedback/create">ADD</a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link click-scroll dropdown-toggle" href="../../forums/" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Forum</a>
+        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+            <li><a class="dropdown-item" href="../../forums/">List</a></li>
+            <li><a class="dropdown-item" href="../../forums/create/">ADD</a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link click-scroll dropdown-toggle" href="../../tips" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tips</a>
+        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+            <li><a class="dropdown-item" href="../../tips">List</a></li>
+            <li><a class="dropdown-item" href="../../tips/admin_upload">ADD</a></li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link click-scroll" href="../../events/list">Events</a>
+    </li>
+    <li class="nav-item ms-3 d-flex align-items-center">
+        {% if user.is_authenticated %}
+            <a class="nav-link custom-btn custom-border-btn btn" href="/users/logout/">Logout</a>
+            <span class="username-badge2 ms-2">{{ user.username }}</span>
+            <div class="contact-image-wrap2 ms-2">
+                <img src="../../static/temp/images/avatar/studio-portrait-emotional-happy-funny.jpg" class="img-fluid avatar-image2" alt="">
+            </div>
+        {% else %}
+            <a class="nav-link custom-btn custom-border-btn btn" href="/users/login/">Login</a>
+        {% endif %}
+    </li>
+</ul>
+{% endblock %} {% endcomment %}
+
+{% block content %}
+<div class="section tip-detail" id="tip-detail">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="section-heading">
+                    <h2 class="mb-4">{{ tip.title }}</h2>
+                </div>
+            </div>
+
+            <div class="col-lg-8 offset-lg-2">
+                <div class="tip-detail-content px-4">
+                    <img src="{{ tip.image.url }}" alt="{{ tip.title }}" class="img-fluid mb-4">
+                    <p class="mb-4">{{ tip.description|linebreaksbr }}</p>
+
+                    <p><strong>Created On:</strong> {{ tip.created_at|date:"d M Y" }}</p>
+                    <p><strong>Last Updated:</strong> {{ tip.updated_at|date:"d M Y" }}</p>
+                </div>
+                
+                <div class="text-center mt-4" style="margin-top: 10px;">
+                  <button onclick="window.location.href='{% url 'tip_update' tip.id %}';" style="background-color: #4CAF50; color: white; padding: 4px 8px; border: none; border-radius: 5px; cursor: pointer; margin-right: 5px;">Update</button>
+                  <button onclick="window.location.href='{% url 'tip_delete' tip.id %}';" style="background-color: #c0392b; color: white; padding: 4px 8px; border: none; border-radius: 5px; cursor: pointer;">Delete</button>
+              </div>
+              
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

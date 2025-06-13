@@ -1,0 +1,2840 @@
+[
+{
+  "model": "sessions.session",
+  "pk": "6ftc36z3cwxgwqj5pdrnuaacc09u1n48",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyHAlgIevfcbyO5CpWpoUtqT8d9tkx70Npn3Zt4i4raWuLW8xCmJq9Di8tsR8jPXA6QH1vssea7rMpE8FHnSJoc55dftdP8OCrayrxUrD95hoNBbBOq0cZj2NDqyZvSGHWmETmMPELQ3yYMLDKgYrUEWny_KdDde:1tIU6F:cmrBWrZbj2T_zOmjG0rBEhJJgiMgJ0JLJR_aQQJC3LA",
+    "expire_date": "2024-12-17T14:42:03.490Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "71bw0zy0yt83agtvk6y3og3ydff1la54",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGlnxEi-U9JzB8l-MA8iR4qRC3B0ipYD2zcx7iZS3taat85ImEmehlDj9jpDxwW0ndM_tNkuc27pMIHdFHrTL60z8vBzu30HNvX5r9gRYXFQIxpK2Q_CIYwCNbNE7MJG0w1gM8BDDaF0IXNB4lXVwkbx4fwAhljhV:1uOYqz:ZUnh5gHIj5FNmiLHzhNuRqUqRC00TrrVZAxESCo18us",
+    "expire_date": "2025-06-23T09:31:41.320Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7w4w0wb3ufv7hednivvx5pwzajhkdik2",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyHAlgIevfcbyO5CpWpoUtqT8d9tkx70Npn3Zt4i4raWuLW8xCmJq9Di8tsR8jPXA6QH1vssea7rMpE8FHnSJoc55dftdP8OCrayrxUrD95hoNBbBOq0cZj2NDqyZvSGHWmETmMPELQ3yYMLDKgYrUEWny_KdDde:1tackT:5z21Hz0Y162d1YPQN2qYeLp2MU6bk0VgqHQu9PYctlo",
+    "expire_date": "2025-02-05T15:34:33.767Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8hyr35u2s4rocql7emhcjtp1otqikgz9",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyHAlgIevfcbyO5CpWpoUtqT8d9tkx70Npn3Zt4i4raWuLW8xCmJq9Di8tsR8jPXA6QH1vssea7rMpE8FHnSJoc55dftdP8OCrayrxUrD95hoNBbBOq0cZj2NDqyZvSGHWmETmMPELQ3yYMLDKgYrUEWny_KdDde:1tFqyd:v7x-w1wYk8Q_jfTjyWEKNMdvC36ZVIzSD7Bp-gLFtjE",
+    "expire_date": "2024-12-10T08:31:19.807Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "b4yxxauebhhh6zri6my9ix5o2sjat113",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyHAlgIevfcbyO5CpWpoUtqT8d9tkx70Npn3Zt4i4raWuLW8xCmJq9Di8tsR8jPXA6QH1vssea7rMpE8FHnSJoc55dftdP8OCrayrxUrD95hoNBbBOq0cZj2NDqyZvSGHWmETmMPELQ3yYMLDKgYrUEWny_KdDde:1tFllX:PNHaEEUo9LWxEpjurY5ODeS7iN-GzpSpTfnN0EKRw-k",
+    "expire_date": "2024-12-10T02:57:27.692Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "egujgnjkwyyqr8y6q3cqdw2d6w3hnuge",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAQRf-la9MMHWipS_d-A-k8ENS0CYWV8d-VhIVu7znnvsyQtnUatqrLMIs5mwbM6XekxA_NO5F7yrdiueR1mcnuij1otdci-rwc7t_BlOr0rVMbiYIXVm3jKC5w03kXXEDECNipT70XH4GJFEU9okoP7EaAbmQy7w8Nuzhl:1tOE3y:pYaCzRvbzeDvnMDMKpL4ejHPJQ4tRWKLwG0LhTT9GBc",
+    "expire_date": "2025-01-02T10:47:26.170Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "evm6c71t76kytb0093ei88o7tivnbuax",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyHAlgIevfcbyO5CpWpoUtqT8d9tkx70Npn3Zt4i4raWuLW8xCmJq9Di8tsR8jPXA6QH1vssea7rMpE8FHnSJoc55dftdP8OCrayrxUrD95hoNBbBOq0cZj2NDqyZvSGHWmETmMPELQ3yYMLDKgYrUEWny_KdDde:1tFmNP:STvgGPEzse-E0RaeKyZKX1fmwHG2dMyB8pBfM3iuXyI",
+    "expire_date": "2024-12-10T03:36:35.391Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "nx1lokyj9n0uyb43c8uzc32pnzdl9r2e",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyHAlgIevfcbyO5CpWpoUtqT8d9tkx70Npn3Zt4i4raWuLW8xCmJq9Di8tsR8jPXA6QH1vssea7rMpE8FHnSJoc55dftdP8OCrayrxUrD95hoNBbBOq0cZj2NDqyZvSGHWmETmMPELQ3yYMLDKgYrUEWny_KdDde:1tFntX:_j7Sg91L9bPX_OMjznlvjqBi0LHrfDyDdQ54_I1tb98",
+    "expire_date": "2024-12-10T05:13:51.728Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "p81vpxp4k92rzf4f4yidrlpee7jgblm6",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSG8Cy7d-w1kYAapGkhKuzL-uzbpQrf3nHNfLMK21rgNWuKM7MwUO_1uCfKD2g7wDu3Wee5tXebEd4UfdPBrR3peDvfvoMKo37ooa4JTpWgLhnRxwYeJhEhEoiSUExqwuSiQVhAGj85m7zRY1Fl6pdj7A-0JOA0:1tFlTb:KC2lZ6y0jMfb4isNOVfTPU8_HJiffoSzWCdvQOqreDA",
+    "expire_date": "2024-12-10T02:38:55.946Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "q0r4qy295b4zzqc2qd4jllwq0ebjjsou",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSG8EZfu-w1kBgapGkhKuzL-uzbpQrf3nHNfLMK21rgNWuKc2YVpdvrdENKD2g7yHdqt89TbuszId4UfdPCpZ3peD_fvoMKo31qikcVoL0JAQ6gsBrAKsw3aBxIiETmpSkpaWmcDKK8dZK_OLuVCSrP3B9ULN6U:1tFibZ:zpxEmkjZaoSVxfY4D3np3D3A2ACbzanVvXPB7kmp5mo",
+    "expire_date": "2024-12-09T23:34:57.871Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qtjpcz2u76fddgko1payztfjga0d2xwy",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyHAlgIevfcbyO5CpWpoUtqT8d9tkx70Npn3Zt4i4raWuLW8xCmJq9Di8tsR8jPXA6QH1vssea7rMpE8FHnSJoc55dftdP8OCrayrxUrD95hoNBbBOq0cZj2NDqyZvSGHWmETmMPELQ3yYMLDKgYrUEWny_KdDde:1tFgQX:3HMypxdlLkF35dC1vscI3D5B5jwwXVy9UpzkdOpBDGo",
+    "expire_date": "2024-12-09T21:15:25.264Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ud2trik71ew5u53xzkh8lsyzgpkjyfm4",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyHAlgIevfcbyO5CpWpoUtqT8d9tkx70Npn3Zt4i4raWuLW8xCmJq9Di8tsR8jPXA6QH1vssea7rMpE8FHnSJoc55dftdP8OCrayrxUrD95hoNBbBOq0cZj2NDqyZvSGHWmETmMPELQ3yYMLDKgYrUEWny_KdDde:1tFgGF:o2RLCquLJmORpDjJlGTmWNMe6485sL6TYqh_k7Z25Aw",
+    "expire_date": "2024-12-09T21:04:47.529Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "v5zo1if85cdq186cy2cpx1pgqw7dhgp0",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyHAlgIevfcbyO5CpWpoUtqT8d9tkx70Npn3Zt4i4raWuLW8xCmJq9Di8tsR8jPXA6QH1vssea7rMpE8FHnSJoc55dftdP8OCrayrxUrD95hoNBbBOq0cZj2NDqyZvSGHWmETmMPELQ3yYMLDKgYrUEWny_KdDde:1tFp83:_giHhLByYeNkrPDAjpIdM8Fchr-QcK8u0tvL7Qb8M3k",
+    "expire_date": "2024-12-10T06:32:55.449Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "xli4m12s1sf5ebxb7enhx4o8xzgb624a",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQRP-FsyHAlgIevfcbyO5CpWpoUtqT8d9tkx70Npn3Zt4i4raWuLW8xCmJq9Di8tsR8jPXA6QH1vssea7rMpE8FHnSJoc55dftdP8OCrayrxUrD95hoNBbBOq0cZj2NDqyZvSGHWmETmMPELQ3yYMLDKgYrUEWny_KdDde:1tFmL7:MjDSewt-9UT-RnmMmvMrn-z2LHFdVO8dmg89QLlRXrw",
+    "expire_date": "2024-12-10T03:34:13.946Z"
+  }
+},
+{
+  "model": "main.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$9pYUGYzU4cjuvmxLM5p9S7$a/tmTQdGVXqUWRP0dPn9JvN+Skwoph3wMkDtzRO/42Y=",
+    "last_login": "2025-01-22T15:34:33.469Z",
+    "is_superuser": false,
+    "username": "doctor",
+    "first_name": "fsd",
+    "last_name": "fds",
+    "email": "ds@doctor.tn",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-11-25T21:02:19Z",
+    "new_event": true,
+    "profile_picture": "",
+    "role": "doctor",
+    "phone_number": null,
+    "date_of_birth": "1515-12-15",
+    "bookable": false,
+    "groups": [],
+    "user_permissions": [
+      [
+        "add_event",
+        "EventApp",
+        "event"
+      
+      ]
+    ]
+  }
+},
+{
+  "model": "main.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$nP8Wi6VBNb738bORaWA6JD$4YH6wFk1hrbWpvaXhTWxMve/Sw3q3A2/kjQms2MvSTU=",
+    "last_login": "2024-11-26T06:05:23.646Z",
+    "is_superuser": false,
+    "username": "patient",
+    "first_name": "fds",
+    "last_name": "fds",
+    "email": "patient@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-11-25T21:04:20.651Z",
+    "new_event": true,
+    "profile_picture": "",
+    "role": "patient",
+    "phone_number": null,
+    "date_of_birth": "1515-12-15",
+    "bookable": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "main.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$WApuyM5iSRcZpmCR7pF7ap$WtZS0M76Ma8+ug2+IkpVPwNfiiDk1iDf6RA+hrh8Y8I=",
+    "last_login": "2024-12-19T10:11:54.204Z",
+    "is_superuser": true,
+    "username": "iyadh",
+    "first_name": "",
+    "last_name": "",
+    "email": "iyadh@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-11-25T21:34:56.796Z",
+    "new_event": false,
+    "profile_picture": "",
+    "role": "patient",
+    "phone_number": null,
+    "date_of_birth": null,
+    "bookable": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "main.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$N70DMsKZ2HF6xbZMOxztti$Tg+3/HV1Tzb8JGxenMI3PoUGntQcLI4Ivq+Z/ZaR+7w=",
+    "last_login": "2024-11-26T06:32:30Z",
+    "is_superuser": false,
+    "username": "patient1",
+    "first_name": "gfd",
+    "last_name": "gfd",
+    "email": "gdf@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-11-26T06:32:29Z",
+    "new_event": true,
+    "profile_picture": "profile_pictures/Screenshot_2024-11-25_134314.png",
+    "role": "patient",
+    "phone_number": null,
+    "date_of_birth": "1515-12-15",
+    "bookable": true,
+    "groups": [],
+    "user_permissions": [
+      [
+        "delete_booking",
+        "EventApp",
+        "booking"
+      ],
+      [
+        "delete_event",
+        "EventApp",
+        "event"
+      ]
+    ]
+  }
+},
+{
+  "model": "main.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$YBoRXQryXrMAYHVDuQasdk$iinLij5kZgeleouueCArDc7w45zb+SG4B75Ol5V98qg=",
+    "last_login": "2024-11-26T08:15:05.533Z",
+    "is_superuser": false,
+    "username": "amine",
+    "first_name": "lazher",
+    "last_name": "tetr",
+    "email": "ghiloufi.iyadh@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-11-26T08:12:14.676Z",
+    "new_event": true,
+    "profile_picture": "profile_pictures/Med-Apolo-PDT-LED-Anti-Aging-Photodynamic-Therapy-Beauty-Equipment-for-_8LvPCdB.png",
+    "role": "patient",
+    "phone_number": null,
+    "date_of_birth": "2024-11-30",
+    "bookable": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "main.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$z27bTkiliV8nQ0tESIAXSy$XL5YMd8dF8LUwCulAQpGsrEvyblmrlB3YPLAb04T2uE=",
+    "last_login": "2024-12-17T12:29:08.916Z",
+    "is_superuser": false,
+    "username": "patient2",
+    "first_name": "fsd",
+    "last_name": "gfd",
+    "email": "fsf@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-12-17T12:26:56.529Z",
+    "new_event": true,
+    "profile_picture": "",
+    "role": "patient",
+    "phone_number": null,
+    "date_of_birth": "5115-12-15",
+    "bookable": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "main.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$XzpD9SboYUXhZOJsclcnT7$sGJSc/pkrkR6nVglQ+DUYjJSR6Ohd20Grnsr+kolmSc=",
+    "last_login": "2024-12-17T19:19:01.098Z",
+    "is_superuser": false,
+    "username": "patient26",
+    "first_name": "fd",
+    "last_name": "gg",
+    "email": "fsf@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-12-17T19:18:23.801Z",
+    "new_event": true,
+    "profile_picture": "",
+    "role": "patient",
+    "phone_number": null,
+    "date_of_birth": "1515-12-15",
+    "bookable": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "main.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$NP5r3FYM7lTQZFvBF5DTk1$h73XyTOmOp7UDW3nUTK4AcQoOuZnu71BJMYO5Frj5lY=",
+    "last_login": "2024-12-17T19:52:32.889Z",
+    "is_superuser": false,
+    "username": "test",
+    "first_name": "fds",
+    "last_name": "gfd",
+    "email": "dsf@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-12-17T19:52:32.319Z",
+    "new_event": true,
+    "profile_picture": "",
+    "role": "patient",
+    "phone_number": null,
+    "date_of_birth": "1515-12-15",
+    "bookable": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "main.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$Gf3dloGLHGMqfOFSv0Uo4S$whPqFbIzUMwGasUeazg12PpZzP3kPe6/FF3rtEWXX3s=",
+    "last_login": "2024-12-19T10:47:25.922Z",
+    "is_superuser": false,
+    "username": "patient3",
+    "first_name": "patient",
+    "last_name": "patient",
+    "email": "patient3@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-12-19T10:03:04.107Z",
+    "new_event": true,
+    "profile_picture": "profile_pictures/downloa51d_2.png",
+    "role": "patient",
+    "phone_number": null,
+    "date_of_birth": "2000-12-18",
+    "bookable": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "main.customuser",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$PgkvWSjYWNj3haUdin7dKq$QoJmdH4aai1z75mFTVpyeK1/LxRS+KjCjGffTxxjV1Y=",
+    "last_login": "2025-06-09T09:31:41.317Z",
+    "is_superuser": false,
+    "username": "mohamedbenmansour",
+    "first_name": "mohamed",
+    "last_name": "ben mansour",
+    "email": "mohamedbenmansour70@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-06-09T09:31:40.664Z",
+    "new_event": false,
+    "profile_picture": "",
+    "role": "patient",
+    "phone_number": null,
+    "date_of_birth": "2003-11-22",
+    "bookable": false,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 1,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-11-27",
+    "time": "16:30:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 2,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-11-26",
+    "time": "16:30:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 3,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-11-26",
+    "time": "08:00:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 4,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-11-26",
+    "time": "11:00:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 5,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-06",
+    "time": "08:00:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 6,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-06",
+    "time": "08:30:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 7,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-11-29",
+    "time": "12:00:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 8,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-04",
+    "time": "08:30:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 9,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-06",
+    "time": "16:30:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 10,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "iyadh"
+    ],
+    "date": "2024-12-06",
+    "time": "15:00:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 11,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2025-01-03",
+    "time": "09:30:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 12,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-04",
+    "time": "11:00:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 13,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-11-29",
+    "time": "08:00:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 14,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "iyadh"
+    ],
+    "date": "2024-11-26",
+    "time": "11:00:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 15,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "amine"
+    ],
+    "date": "2024-11-27",
+    "time": "08:30:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 16,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-27",
+    "time": "10:30:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 17,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-20",
+    "time": "14:00:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 18,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-13",
+    "time": "08:00:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 19,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-12",
+    "time": "08:00:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 20,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-11",
+    "time": "08:30:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 21,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-11",
+    "time": "08:30:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 22,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-11",
+    "time": "08:00:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 23,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-11",
+    "time": "08:30:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 24,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-11",
+    "time": "10:00:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 25,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-11",
+    "time": "08:30:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 26,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-12",
+    "time": "09:00:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 27,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient"
+    ],
+    "date": "2024-12-17",
+    "time": "10:00:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 29,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient3"
+    ],
+    "date": "2024-12-20",
+    "time": "15:00:00",
+    "type": "visit",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 30,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient3"
+    ],
+    "date": "2024-12-20",
+    "time": "09:30:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 31,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient3"
+    ],
+    "date": "2024-12-23",
+    "time": "09:30:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.appointment",
+  "pk": 32,
+  "fields": {
+    "doctor": [
+      "doctor"
+    ],
+    "patient": [
+      "patient3"
+    ],
+    "date": "2024-12-20",
+    "time": "08:30:00",
+    "type": "test",
+    "is_canceled": false,
+    "summary": null,
+    "google_event_id": null
+  }
+},
+{
+  "model": "main.note",
+  "pk": 1,
+  "fields": {
+    "appointment": 1,
+    "content": "visible",
+    "visible_to_patient": true,
+    "created_at": "2024-11-25T21:14:38.037Z"
+  }
+},
+{
+  "model": "main.note",
+  "pk": 2,
+  "fields": {
+    "appointment": 1,
+    "content": "visible2",
+    "visible_to_patient": true,
+    "created_at": "2024-11-26T04:14:59.296Z"
+  }
+},
+{
+  "model": "main.note",
+  "pk": 3,
+  "fields": {
+    "appointment": 15,
+    "content": "visible",
+    "visible_to_patient": true,
+    "created_at": "2024-11-26T08:33:20.974Z"
+  }
+},
+{
+  "model": "main.note",
+  "pk": 4,
+  "fields": {
+    "appointment": 15,
+    "content": "unvisible",
+    "visible_to_patient": false,
+    "created_at": "2024-11-26T08:33:21.121Z"
+  }
+},
+{
+  "model": "main.note",
+  "pk": 5,
+  "fields": {
+    "appointment": 29,
+    "content": "visible",
+    "visible_to_patient": true,
+    "created_at": "2024-12-19T10:39:13.423Z"
+  }
+},
+{
+  "model": "main.note",
+  "pk": 6,
+  "fields": {
+    "appointment": 29,
+    "content": "not visible",
+    "visible_to_patient": false,
+    "created_at": "2024-12-19T10:39:13.678Z"
+  }
+},
+{
+  "model": "main.note",
+  "pk": 7,
+  "fields": {
+    "appointment": 30,
+    "content": "visible",
+    "visible_to_patient": true,
+    "created_at": "2024-12-19T10:42:37.376Z"
+  }
+},
+{
+  "model": "main.note",
+  "pk": 8,
+  "fields": {
+    "appointment": 30,
+    "content": "not visible",
+    "visible_to_patient": false,
+    "created_at": "2024-12-19T10:42:37.641Z"
+  }
+},
+{
+  "model": "main.note",
+  "pk": 9,
+  "fields": {
+    "appointment": 31,
+    "content": "visible",
+    "visible_to_patient": true,
+    "created_at": "2024-12-19T10:44:36.910Z"
+  }
+},
+{
+  "model": "main.note",
+  "pk": 10,
+  "fields": {
+    "appointment": 31,
+    "content": "not visible",
+    "visible_to_patient": false,
+    "created_at": "2024-12-19T10:44:37.107Z"
+  }
+},
+{
+  "model": "main.note",
+  "pk": 11,
+  "fields": {
+    "appointment": 32,
+    "content": "visible",
+    "visible_to_patient": true,
+    "created_at": "2024-12-19T10:46:40.467Z"
+  }
+},
+{
+  "model": "main.note",
+  "pk": 12,
+  "fields": {
+    "appointment": 32,
+    "content": "not visible",
+    "visible_to_patient": false,
+    "created_at": "2024-12-19T10:46:40.699Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 1,
+  "fields": {
+    "recipient": [
+      "doctor"
+    ],
+    "message": "patient is now available for booking.",
+    "read": true,
+    "timestamp": "2024-11-25T21:04:31.314Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 2,
+  "fields": {
+    "recipient": [
+      "patient"
+    ],
+    "message": "doctor has scheduled an appointment with you on 2024-11-26 at 00:14:00.",
+    "read": false,
+    "timestamp": "2024-11-25T21:14:16.448Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 3,
+  "fields": {
+    "recipient": [
+      "doctor"
+    ],
+    "message": "iyadh is now available for booking.",
+    "read": true,
+    "timestamp": "2024-11-25T23:10:19.090Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 4,
+  "fields": {
+    "recipient": [
+      "patient"
+    ],
+    "message": "Your doctor updated your appointment. Appointment on 2024-11-26 at 11:00 was updated.",
+    "read": false,
+    "timestamp": "2024-11-26T05:12:48.099Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 5,
+  "fields": {
+    "recipient": [
+      "doctor"
+    ],
+    "message": "Appointment on 2024-11-26 at 11:00 was updated.",
+    "read": true,
+    "timestamp": "2024-11-26T05:12:48.212Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 6,
+  "fields": {
+    "recipient": [
+      "patient"
+    ],
+    "message": "Appointment on 2024-11-26 at 11:00 was updated.",
+    "read": false,
+    "timestamp": "2024-11-26T05:12:48.307Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 7,
+  "fields": {
+    "recipient": [
+      "doctor"
+    ],
+    "message": "Your patient updated the appointment. Appointment on 2024-11-26 at 16:30 was updated.",
+    "read": true,
+    "timestamp": "2024-11-26T05:13:30.584Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 8,
+  "fields": {
+    "recipient": [
+      "doctor"
+    ],
+    "message": "Appointment on 2024-11-26 at 16:30 was updated.",
+    "read": true,
+    "timestamp": "2024-11-26T05:13:30.690Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 9,
+  "fields": {
+    "recipient": [
+      "patient"
+    ],
+    "message": "Appointment on 2024-11-26 at 16:30 was updated.",
+    "read": false,
+    "timestamp": "2024-11-26T05:13:30.796Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 10,
+  "fields": {
+    "recipient": [
+      "doctor"
+    ],
+    "message": "patient1 is now available for booking.",
+    "read": true,
+    "timestamp": "2024-11-26T06:32:39.323Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 11,
+  "fields": {
+    "recipient": [
+      "doctor"
+    ],
+    "message": "amine is now available for booking.",
+    "read": true,
+    "timestamp": "2024-11-26T08:30:46.162Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 12,
+  "fields": {
+    "recipient": [
+      "doctor"
+    ],
+    "message": "patient2 is now available for booking.",
+    "read": true,
+    "timestamp": "2024-12-17T12:27:04.937Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 14,
+  "fields": {
+    "recipient": [
+      "doctor"
+    ],
+    "message": "patient26 is now available for booking.",
+    "read": true,
+    "timestamp": "2024-12-17T19:19:06.442Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 16,
+  "fields": {
+    "recipient": [
+      "doctor"
+    ],
+    "message": "patient3 is now available for booking.",
+    "read": false,
+    "timestamp": "2024-12-19T10:04:54.503Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 18,
+  "fields": {
+    "recipient": [
+      "patient3"
+    ],
+    "message": "Your doctor updated your appointment. Appointment on 2024-12-20 at 15:00 was updated.",
+    "read": false,
+    "timestamp": "2024-12-19T10:39:32.163Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 19,
+  "fields": {
+    "recipient": [
+      "doctor"
+    ],
+    "message": "Appointment on 2024-12-20 at 15:00 was updated.",
+    "read": false,
+    "timestamp": "2024-12-19T10:39:32.428Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 20,
+  "fields": {
+    "recipient": [
+      "patient3"
+    ],
+    "message": "Appointment on 2024-12-20 at 15:00 was updated.",
+    "read": false,
+    "timestamp": "2024-12-19T10:39:32.492Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 21,
+  "fields": {
+    "recipient": [
+      "patient"
+    ],
+    "message": "Your doctor updated your appointment. Appointment on 2024-12-20 at 14:00 was updated.",
+    "read": false,
+    "timestamp": "2024-12-19T10:42:50.506Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 22,
+  "fields": {
+    "recipient": [
+      "doctor"
+    ],
+    "message": "Appointment on 2024-12-20 at 14:00 was updated.",
+    "read": false,
+    "timestamp": "2024-12-19T10:42:50.770Z"
+  }
+},
+{
+  "model": "main.notification",
+  "pk": 23,
+  "fields": {
+    "recipient": [
+      "patient"
+    ],
+    "message": "Appointment on 2024-12-20 at 14:00 was updated.",
+    "read": false,
+    "timestamp": "2024-12-19T10:42:50.834Z"
+  }
+},
+{
+  "model": "tips.tip",
+  "pk": 1,
+  "fields": {
+    "title": "Utilisez une crème solaire adaptée",
+    "description": "Appliquez une crème solaire avec un SPF d'au moins 30 chaque matin, même par temps nuageux. Cela aide à réduire les risques de dommages causés par les rayons UV.",
+    "category": "protection",
+    "image": "fluidevisu2_1200x.png",
+    "created_at": "2024-11-25T23:42:07.473Z",
+    "updated_at": "2024-11-25T23:42:07.473Z"
+  }
+},
+{
+  "model": "tips.tip",
+  "pk": 2,
+  "fields": {
+    "title": "Portez des vêtements protecteurs",
+    "description": "Privilégiez les vêtements à manches longues, les chapeaux à larges bords et les lunettes de soleil pour protéger votre peau des rayons directs du soleil.",
+    "category": "protection",
+    "image": "ffdgd.png",
+    "created_at": "2024-11-25T23:48:21.457Z",
+    "updated_at": "2024-11-25T23:57:04.236Z"
+  }
+},
+{
+  "model": "tips.tip",
+  "pk": 3,
+  "fields": {
+    "title": "Recherchez l'ombre",
+    "description": "Lorsque vous êtes à l'extérieur, restez sous un parasol, un arbre ou tout autre abri pour minimiser l'exposition directe au soleil.",
+    "category": "protection",
+    "image": "parasol2.jpg",
+    "created_at": "2024-11-25T23:51:37.809Z",
+    "updated_at": "2024-11-25T23:51:37.809Z"
+  }
+},
+{
+  "model": "tips.tip",
+  "pk": 5,
+  "fields": {
+    "title": "Consultez dermato",
+    "description": "Si vous remarquez une lésion suspecte ou des changements dans un grain de beauté, consultez un spécialiste pour un diagnostic précis.",
+    "category": "treatment",
+    "image": "retrait-grain-de-beaute.png",
+    "created_at": "2024-11-26T00:01:51.858Z",
+    "updated_at": "2024-11-26T00:08:28.051Z"
+  }
+},
+{
+  "model": "tips.tip",
+  "pk": 6,
+  "fields": {
+    "title": "Suivez un traitement photo-dynamique",
+    "description": "Ce traitement, recommandé par les spécialistes, utilise une lumière spéciale pour détruire les cellules cancéreuses tout en minimisant les dommages à la peau saine.",
+    "category": "treatment",
+    "image": "Med-Apolo-PDT-LED-Anti-Aging-Photodynamic-Therapy-Beauty-Equipment-for-Skin-Rejuvenation.png",
+    "created_at": "2024-11-26T00:04:36.790Z",
+    "updated_at": "2024-11-26T00:08:51.957Z"
+  }
+},
+{
+  "model": "tips.tip",
+  "pk": 7,
+  "fields": {
+    "title": "Optez pour une thérapie ciblée",
+    "description": "Si recommandé, une thérapie ciblée peut aider à détruire les cellules cancéreuses tout en épargnant les cellules saines environnantes.",
+    "category": "treatment",
+    "image": "therapiesciblees.png",
+    "created_at": "2024-11-26T00:06:58.852Z",
+    "updated_at": "2024-11-26T00:06:58.852Z"
+  }
+},
+{
+  "model": "EventApp.event",
+  "pk": 2,
+  "fields": {
+    "event_title": "Hope Beyond Horizons",
+    "event_Type": "Wellness Workshop",
+    "description": "A congress focused on advancing cancer prediction and detection technologies through innovation",
+    "start_date": "2024-11-25T23:12:09Z",
+    "end_date": "2024-11-27T23:12:17Z",
+    "location": "Tunis",
+    "affiche": "files/467109160_861267669413626_3785511302307535625_n.png",
+    "created_at": "2024-11-25T23:15:10.283Z",
+    "updated_at": "2024-11-25T23:15:10.283Z"
+  }
+},
+{
+  "model": "EventApp.event",
+  "pk": 3,
+  "fields": {
+    "event_title": "Illuminate Life",
+    "event_Type": "Wellness Workshop",
+    "description": "An awareness campaign highlighting the importance of early cancer detection for better outcomes.",
+    "start_date": "2024-11-25T12:00:00Z",
+    "end_date": "2024-11-28T18:00:00Z",
+    "location": "Tunis",
+    "affiche": "files/467113419_8695073237237935_1492285014025030197_n.png",
+    "created_at": "2024-11-25T23:17:24.886Z",
+    "updated_at": "2024-11-25T23:17:24.886Z"
+  }
+},
+{
+  "model": "EventApp.event",
+  "pk": 4,
+  "fields": {
+    "event_title": "Voices Against Cancer",
+    "event_Type": "Health Screening",
+    "description": "A platform for survivors, researchers, and advocates to share experiences and breakthroughs.",
+    "start_date": "2024-12-01T06:00:00Z",
+    "end_date": "2024-12-18T18:00:00Z",
+    "location": "Tunis",
+    "affiche": "files/467110372_895175265930552_5883137739922858330_n.png",
+    "created_at": "2024-11-25T23:19:22.450Z",
+    "updated_at": "2024-11-25T23:19:22.450Z"
+  }
+},
+{
+  "model": "EventApp.event",
+  "pk": 6,
+  "fields": {
+    "event_title": "event",
+    "event_Type": "Wellness Workshop",
+    "description": "fds",
+    "start_date": "2024-12-17T19:53:03Z",
+    "end_date": "2024-12-30T19:53:15Z",
+    "location": ",k",
+    "affiche": "files/download_1_4c0lZrj.png",
+    "created_at": "2024-12-17T19:53:29.349Z",
+    "updated_at": "2024-12-17T19:53:29.349Z"
+  }
+},
+{
+  "model": "EventApp.event",
+  "pk": 7,
+  "fields": {
+    "event_title": "gfdgd",
+    "event_Type": "Health Screening",
+    "description": "gdfgdf",
+    "start_date": "2024-12-17T20:53:21Z",
+    "end_date": "2024-12-17T20:53:26Z",
+    "location": "gfd",
+    "affiche": "files/download_1_trg6tI4.png",
+    "created_at": "2024-12-17T20:53:48.191Z",
+    "updated_at": "2024-12-17T20:53:48.191Z"
+  }
+},
+{
+  "model": "EventApp.event",
+  "pk": 8,
+  "fields": {
+    "event_title": "uhooh",
+    "event_Type": "Wellness Workshop",
+    "description": "fsfsfsd",
+    "start_date": "2024-12-17T21:14:28Z",
+    "end_date": "2024-12-31T21:14:32Z",
+    "location": "fdsq",
+    "affiche": "files/download_1_h6Lj3CR.png",
+    "created_at": "2024-12-17T21:14:47.234Z",
+    "updated_at": "2024-12-17T21:14:47.234Z"
+  }
+},
+{
+  "model": "EventApp.event",
+  "pk": 9,
+  "fields": {
+    "event_title": "event",
+    "event_Type": "Wellness Workshop",
+    "description": "event",
+    "start_date": "2024-12-19T10:12:44Z",
+    "end_date": "2024-12-24T10:12:50Z",
+    "location": "mourouj",
+    "affiche": "files/downloa51d_2.png",
+    "created_at": "2024-12-19T10:13:21.315Z",
+    "updated_at": "2024-12-19T10:13:21.315Z"
+  }
+},
+{
+  "model": "EventApp.seat",
+  "pk": 11,
+  "fields": {
+    "event": 2,
+    "row": "A",
+    "number": 12,
+    "is_booked": true
+  }
+},
+{
+  "model": "EventApp.seat",
+  "pk": 12,
+  "fields": {
+    "event": 2,
+    "row": "A",
+    "number": 13,
+    "is_booked": true
+  }
+},
+{
+  "model": "EventApp.seat",
+  "pk": 13,
+  "fields": {
+    "event": 3,
+    "row": "B",
+    "number": 14,
+    "is_booked": true
+  }
+},
+{
+  "model": "EventApp.seat",
+  "pk": 14,
+  "fields": {
+    "event": 3,
+    "row": "A",
+    "number": 11,
+    "is_booked": true
+  }
+},
+{
+  "model": "EventApp.seat",
+  "pk": 15,
+  "fields": {
+    "event": 2,
+    "row": "A",
+    "number": 10,
+    "is_booked": false
+  }
+},
+{
+  "model": "EventApp.seat",
+  "pk": 16,
+  "fields": {
+    "event": 2,
+    "row": "B",
+    "number": 10,
+    "is_booked": false
+  }
+},
+{
+  "model": "EventApp.seat",
+  "pk": 17,
+  "fields": {
+    "event": 2,
+    "row": "B",
+    "number": 15,
+    "is_booked": false
+  }
+},
+{
+  "model": "EventApp.seat",
+  "pk": 18,
+  "fields": {
+    "event": 2,
+    "row": "C",
+    "number": 10,
+    "is_booked": false
+  }
+},
+{
+  "model": "EventApp.seat",
+  "pk": 19,
+  "fields": {
+    "event": 2,
+    "row": "C",
+    "number": 11,
+    "is_booked": false
+  }
+},
+{
+  "model": "EventApp.seat",
+  "pk": 20,
+  "fields": {
+    "event": 2,
+    "row": "C",
+    "number": 13,
+    "is_booked": false
+  }
+},
+{
+  "model": "EventApp.seat",
+  "pk": 21,
+  "fields": {
+    "event": 2,
+    "row": "A",
+    "number": 2,
+    "is_booked": false
+  }
+},
+{
+  "model": "EventApp.seat",
+  "pk": 22,
+  "fields": {
+    "event": 2,
+    "row": "A",
+    "number": 4,
+    "is_booked": false
+  }
+},
+{
+  "model": "EventApp.seat",
+  "pk": 23,
+  "fields": {
+    "event": 2,
+    "row": "B",
+    "number": 9,
+    "is_booked": true
+  }
+},
+{
+  "model": "EventApp.seat",
+  "pk": 24,
+  "fields": {
+    "event": 2,
+    "row": "B",
+    "number": 11,
+    "is_booked": false
+  }
+},
+{
+  "model": "EventApp.seat",
+  "pk": 25,
+  "fields": {
+    "event": 2,
+    "row": "C",
+    "number": 12,
+    "is_booked": false
+  }
+},
+{
+  "model": "EventApp.seat",
+  "pk": 26,
+  "fields": {
+    "event": 2,
+    "row": "C",
+    "number": 12,
+    "is_booked": false
+  }
+},
+{
+  "model": "EventApp.booking",
+  "pk": 11,
+  "fields": {
+    "user": [
+      "iyadh"
+    ],
+    "seat": 11,
+    "booked_at": "2024-11-25T23:23:10.462Z"
+  }
+},
+{
+  "model": "EventApp.booking",
+  "pk": 12,
+  "fields": {
+    "user": [
+      "patient"
+    ],
+    "seat": 14,
+    "booked_at": "2024-11-26T02:39:06.446Z"
+  }
+},
+{
+  "model": "EventApp.booking",
+  "pk": 13,
+  "fields": {
+    "user": [
+      "amine"
+    ],
+    "seat": 12,
+    "booked_at": "2024-11-26T08:30:11.876Z"
+  }
+},
+{
+  "model": "EventApp.booking",
+  "pk": 14,
+  "fields": {
+    "user": [
+      "iyadh"
+    ],
+    "seat": 13,
+    "booked_at": "2024-12-19T10:15:19.003Z"
+  }
+},
+{
+  "model": "EventApp.booking",
+  "pk": 15,
+  "fields": {
+    "user": [
+      "iyadh"
+    ],
+    "seat": 23,
+    "booked_at": "2024-12-19T10:19:23.382Z"
+  }
+},
+{
+  "model": "feedback.feedback",
+  "pk": 1,
+  "fields": {
+    "user": [
+      "iyadh"
+    ],
+    "comment": "The app's suggestions are too generic to be helpful.",
+    "created_at": "2024-11-25T23:25:23.879Z",
+    "updated_at": "2024-11-25T23:25:23.879Z",
+    "gif_url": null,
+    "sentiment": "Neutre",
+    "rating": 2
+  }
+},
+{
+  "model": "feedback.feedback",
+  "pk": 2,
+  "fields": {
+    "user": [
+      "iyadh"
+    ],
+    "comment": "The design is outdated, and it feels unprofessional",
+    "created_at": "2024-11-25T23:26:03.882Z",
+    "updated_at": "2024-11-25T23:26:03.882Z",
+    "gif_url": null,
+    "sentiment": "Négatif",
+    "rating": 2
+  }
+},
+{
+  "model": "feedback.feedback",
+  "pk": 3,
+  "fields": {
+    "user": [
+      "iyadh"
+    ],
+    "comment": "Great app! It helped me identify a potential issue early.❤️👍",
+    "created_at": "2024-11-25T23:26:32.514Z",
+    "updated_at": "2024-11-25T23:26:32.514Z",
+    "gif_url": null,
+    "sentiment": "Positif",
+    "rating": 5
+  }
+},
+{
+  "model": "feedback.feedback",
+  "pk": 4,
+  "fields": {
+    "user": [
+      "iyadh"
+    ],
+    "comment": "The service provided is acceptable, and the application meets its basic requirements.👍",
+    "created_at": "2024-11-25T23:27:03.574Z",
+    "updated_at": "2024-11-25T23:27:03.574Z",
+    "gif_url": null,
+    "sentiment": "Neutre",
+    "rating": 3
+  }
+},
+{
+  "model": "feedback.feedback",
+  "pk": 5,
+  "fields": {
+    "user": [
+      "iyadh"
+    ],
+    "comment": "I found the app very insightful and easy to use 😊",
+    "created_at": "2024-11-25T23:27:21.296Z",
+    "updated_at": "2024-11-25T23:27:21.296Z",
+    "gif_url": null,
+    "sentiment": "Positif",
+    "rating": 4
+  }
+},
+{
+  "model": "feedback.feedback",
+  "pk": 6,
+  "fields": {
+    "user": [
+      "doctor"
+    ],
+    "comment": "The app's suggestions are too generic to be helpful.",
+    "created_at": "2024-11-26T08:02:03.090Z",
+    "updated_at": "2024-11-26T08:02:03.090Z",
+    "gif_url": null,
+    "sentiment": "Neutre",
+    "rating": 3
+  }
+},
+{
+  "model": "feedback.feedback",
+  "pk": 7,
+  "fields": {
+    "user": [
+      "doctor"
+    ],
+    "comment": "The app requires internet to function",
+    "created_at": "2024-11-26T08:02:48.233Z",
+    "updated_at": "2024-11-26T08:02:48.233Z",
+    "gif_url": null,
+    "sentiment": "Neutre",
+    "rating": null
+  }
+},
+{
+  "model": "feedback.feedback",
+  "pk": 8,
+  "fields": {
+    "user": [
+      "doctor"
+    ],
+    "comment": "I found the app very insightful and easy to use 😊",
+    "created_at": "2024-11-26T08:03:10.665Z",
+    "updated_at": "2024-11-26T08:03:10.665Z",
+    "gif_url": null,
+    "sentiment": "Positif",
+    "rating": 5
+  }
+},
+{
+  "model": "feedback.feedback",
+  "pk": 9,
+  "fields": {
+    "user": [
+      "amine"
+    ],
+    "comment": "k,kr,knj❤️",
+    "created_at": "2024-11-26T08:19:25.190Z",
+    "updated_at": "2024-11-26T08:19:25.190Z",
+    "gif_url": null,
+    "sentiment": "Neutre",
+    "rating": 5
+  }
+},
+{
+  "model": "feedback.feedback",
+  "pk": 12,
+  "fields": {
+    "user": [
+      "iyadh"
+    ],
+    "comment": "nice website😊",
+    "created_at": "2024-12-19T10:21:44.283Z",
+    "updated_at": "2024-12-19T10:21:44.283Z",
+    "gif_url": null,
+    "sentiment": "Positif",
+    "rating": 4
+  }
+},
+{
+  "model": "forum.forum",
+  "pk": 1,
+  "fields": {
+    "title": "Understanding Skin Conditions 🩺💭",
+    "desc": "A forum to talk about different skin conditions such as eczema, psoriasis, rosacea, and more. Share personal experiences, treatment options, and advice on how to manage these conditions. 🦠💊",
+    "date_creation": "2024-11-26",
+    "upvotes": 5
+  }
+},
+{
+  "model": "forum.forum",
+  "pk": 2,
+  "fields": {
+    "title": "The Role of Diet in Skin Health 🥗🍊",
+    "desc": "Discuss how nutrition and diet impact your skin. S... Discuss how nutrition and diet impact your skin. Share tips on foods that promote healthy skin and the effects of different diets on skin health. 🥒🍓",
+    "date_creation": "2024-11-26",
+    "upvotes": 4
+  }
+},
+{
+  "model": "forum.forum",
+  "pk": 3,
+  "fields": {
+    "title": "Natural Skincare Remedies 🌱💆",
+    "desc": "Explore the benefits of natural skincare methods. ... Explore the benefits of natural skincare methods. From DIY face masks to herbal treatments, let’s discuss how to care for your skin using organic and homemade solutions. 🧖‍♀️🍯",
+    "date_creation": "2024-11-26",
+    "upvotes": 2
+  }
+},
+{
+  "model": "forum.forum",
+  "pk": 4,
+  "fields": {
+    "title": "gd",
+    "desc": "gfnkofkjodqmnf fezoâkopea^jêz",
+    "date_creation": "2024-11-26",
+    "upvotes": 0
+  }
+},
+{
+  "model": "forum.forum",
+  "pk": 5,
+  "fields": {
+    "title": "e,lgfd",
+    "desc": "grjnjeizfniezofng hzeigeuifg neriu n egrpji)grzgergfdgfdgzar",
+    "date_creation": "2024-11-26",
+    "upvotes": 0
+  }
+},
+{
+  "model": "forum.forum",
+  "pk": 6,
+  "fields": {
+    "title": "tgrzgre",
+    "desc": "gjieroq^ko ifeggdfkonzeofjzeireziàfhdsàifiàzheiàfhezçàqhfudàfudsgdf 😂fz,kqgjoer)gjir)egerztji'\")aghjfioêjfizê",
+    "date_creation": "2024-11-26",
+    "upvotes": 0
+  }
+},
+{
+  "model": "forum.forum",
+  "pk": 8,
+  "fields": {
+    "title": "new forum",
+    "desc": "test",
+    "date_creation": "2025-06-09",
+    "upvotes": 2
+  }
+},
+{
+  "model": "forum.comment",
+  "pk": 2,
+  "fields": {
+    "forum": 1,
+    "user": [
+      "amine"
+    ],
+    "content": "hiiii❤️❤️❤️",
+    "created_at": "2024-11-26T08:21:36.641Z",
+    "parent_comment": null,
+    "likes": []
+  }
+},
+{
+  "model": "forum.response",
+  "pk": 1,
+  "fields": {
+    "comment": 2,
+    "user": [
+      "amine"
+    ],
+    "text": "ahla amine😊",
+    "created_at": "2024-11-26T08:22:32.856Z"
+  }
+},
+{
+  "model": "captcha.captchastore",
+  "pk": 88,
+  "fields": {
+    "challenge": "EQIKFX",
+    "response": "eqikfx",
+    "hashkey": "ecd494d8a683fbe900867e50979cb601d7f62f11",
+    "expiration": "2025-06-09T14:21:14.667Z"
+  }
+},
+{
+  "model": "captcha.captchastore",
+  "pk": 93,
+  "fields": {
+    "challenge": "WARQMV",
+    "response": "warqmv",
+    "hashkey": "6ee2e82bfe5c930edc36668d94e953303d95b309",
+    "expiration": "2025-06-09T14:21:54.644Z"
+  }
+},
+{
+  "model": "captcha.captchastore",
+  "pk": 94,
+  "fields": {
+    "challenge": "WJFQXU",
+    "response": "wjfqxu",
+    "hashkey": "9c2e69169e05722eb918e97ff1c073b1e0b4c290",
+    "expiration": "2025-06-09T14:30:04.825Z"
+  }
+},
+{
+  "model": "captcha.captchastore",
+  "pk": 95,
+  "fields": {
+    "challenge": "MOWIZP",
+    "response": "mowizp",
+    "hashkey": "ed15d0b300aae40faba85c5f96c6fe99bea6a6a3",
+    "expiration": "2025-06-09T14:30:28.154Z"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2024-11-25T21:36:25.095Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "event"
+    ],
+    "object_id": "1",
+    "object_repr": "Event object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2024-11-25T21:37:38.179Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "1",
+    "object_repr": "Seat object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2024-11-25T21:39:31.706Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "2",
+    "object_repr": "Seat object (2)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2024-11-25T22:46:36.462Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "3",
+    "object_repr": "Seat object (3)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2024-11-25T22:47:37.086Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "4",
+    "object_repr": "Seat object (4)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2024-11-25T22:48:05.201Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "5",
+    "object_repr": "Seat object (5)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2024-11-25T22:49:06.249Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "6",
+    "object_repr": "Seat object (6)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2024-11-25T22:49:17.031Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "7",
+    "object_repr": "Seat object (7)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2024-11-25T22:49:25.533Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "8",
+    "object_repr": "Seat object (8)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2024-11-25T23:06:19.569Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "9",
+    "object_repr": "Seat object (9)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2024-11-25T23:09:06.290Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "10",
+    "object_repr": "Seat object (10)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2024-11-25T23:15:10.319Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "event"
+    ],
+    "object_id": "2",
+    "object_repr": "Event object (2)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2024-11-25T23:17:24.889Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "event"
+    ],
+    "object_id": "3",
+    "object_repr": "Event object (3)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2024-11-25T23:19:22.453Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "event"
+    ],
+    "object_id": "4",
+    "object_repr": "Event object (4)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2024-11-25T23:19:43.201Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "event"
+    ],
+    "object_id": "1",
+    "object_repr": "Event object (1)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2024-11-25T23:20:22.901Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "11",
+    "object_repr": "Seat object (11)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2024-11-25T23:20:33.589Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "12",
+    "object_repr": "Seat object (12)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2024-11-25T23:20:45.131Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "13",
+    "object_repr": "Seat object (13)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2024-11-25T23:20:59.671Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "14",
+    "object_repr": "Seat object (14)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2024-11-25T23:21:19.933Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "15",
+    "object_repr": "Seat object (15)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2024-11-25T23:21:30.783Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "16",
+    "object_repr": "Seat object (16)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2024-11-25T23:21:43.038Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "17",
+    "object_repr": "Seat object (17)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2024-11-25T23:21:53.644Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "18",
+    "object_repr": "Seat object (18)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2024-11-25T23:22:02.801Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "19",
+    "object_repr": "Seat object (19)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2024-11-25T23:22:17.311Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "20",
+    "object_repr": "Seat object (20)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2024-11-25T23:32:27.240Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "main",
+      "customuser"
+    ],
+    "object_id": "1",
+    "object_repr": "doctor",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2024-11-25T23:32:27.566Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "main",
+      "customuser"
+    ],
+    "object_id": "2",
+    "object_repr": "patient",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2024-12-17T19:46:41.700Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "event"
+    ],
+    "object_id": "5",
+    "object_repr": "Event object (5)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2024-12-17T19:53:29.349Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "event"
+    ],
+    "object_id": "6",
+    "object_repr": "Event object (6)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2024-12-17T20:53:48.194Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "event"
+    ],
+    "object_id": "7",
+    "object_repr": "Event object (7)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2024-12-17T21:14:47.257Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "event"
+    ],
+    "object_id": "8",
+    "object_repr": "Event object (8)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2024-12-19T10:13:21.792Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "event"
+    ],
+    "object_id": "9",
+    "object_repr": "Event object (9)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2024-12-19T10:16:34.831Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "21",
+    "object_repr": "Seat object (21)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2024-12-19T10:17:20.832Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "22",
+    "object_repr": "Seat object (22)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2024-12-19T10:17:58.827Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "23",
+    "object_repr": "Seat object (23)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2024-12-19T10:18:10.559Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "24",
+    "object_repr": "Seat object (24)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2024-12-19T10:18:27.961Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "25",
+    "object_repr": "Seat object (25)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2024-12-19T10:26:23.996Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "main",
+      "customuser"
+    ],
+    "object_id": "1",
+    "object_repr": "doctor",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"User permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2024-12-19T10:26:39.819Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "main",
+      "customuser"
+    ],
+    "object_id": "6",
+    "object_repr": "doctor2",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2024-12-19T10:27:20.758Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "seat"
+    ],
+    "object_id": "26",
+    "object_repr": "Seat object (26)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2024-12-19T10:27:36.325Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "EventApp",
+      "event"
+    ],
+    "object_id": "5",
+    "object_repr": "Event object (5)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2024-12-19T10:28:06.523Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "tips",
+      "tip"
+    ],
+    "object_id": "8",
+    "object_repr": "new_tip",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2024-12-19T10:28:19.305Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "tips",
+      "tip"
+    ],
+    "object_id": "8",
+    "object_repr": "new_tip2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Title\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2024-12-19T10:28:25.666Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "tips",
+      "tip"
+    ],
+    "object_id": "8",
+    "object_repr": "new_tip2",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2024-12-19T10:33:24.837Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "main",
+      "customuser"
+    ],
+    "object_id": "4",
+    "object_repr": "patient1",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"User permissions\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2024-12-19T10:33:34.487Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "main",
+      "customuser"
+    ],
+    "object_id": "4",
+    "object_repr": "patient1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2024-12-19T10:34:03.508Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "main",
+      "customuser"
+    ],
+    "object_id": "4",
+    "object_repr": "patient1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2024-12-19T10:34:28.910Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "main",
+      "customuser"
+    ],
+    "object_id": "8",
+    "object_repr": "patient26",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2024-12-19T10:34:53.025Z",
+    "user": [
+      "iyadh"
+    ],
+    "content_type": [
+      "main",
+      "customuser"
+    ],
+    "object_id": "10",
+    "object_repr": "patient3",
+    "action_flag": 3,
+    "change_message": ""
+  }
+}
+]

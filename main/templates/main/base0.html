@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to static CSS file -->
+    <link rel="stylesheet" href="{% static 'login/base.css' %}">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+</head>
+<body>
+
+    {% if user.is_authenticated %}
+    <h1>Welcome, {{ user.username }}!</h1>
+    <a href="/users/logout">logout</a>
+    {% else %}
+    {% block content %}{% endblock %}
+    {% endif %}
+<script>
+    window.addEventListener("popstate", function(event) {
+        // Rediriger vers la page de déconnexion ou une autre page
+        window.location.href = "/users/logout";
+    });
+</script>
+</body>
+<script src="{% static 'login/base.js' %}"></script>
+
+</html>

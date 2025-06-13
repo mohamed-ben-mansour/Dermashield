@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de Suppression</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f9f9; /* Fond doux pastel */
+            color: #2c3e50; /* Couleur du texte */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 30px;
+            background-color: #ffffff; /* Fond blanc pour la boîte */
+            border-radius: 10px; /* Coins arrondis */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Ombre subtile */
+            transition: box-shadow 0.3s ease; /* Effet d'ombre au survol */
+        }
+
+        .container:hover {
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.15); /* Ombre plus prononcée au survol */
+        }
+
+        h1 {
+            color: #2980b9; /* Bleu doux pour le titre */
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #34495e; /* Couleur du texte doux */
+            margin-bottom: 30px;
+        }
+
+        button, a {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s; /* Transition pour les boutons */
+            font-size: 1.1em;
+        }
+
+        .btn-confirm {
+            background-color: #e74c3c; /* Rouge doux pour confirmation */
+        }
+
+        .btn-cancel {
+            background-color: #27ae60; /* Vert doux pour annuler */
+        }
+
+        .btn-confirm:hover {
+            background-color: #c0392b; /* Rouge foncé au survol */
+        }
+
+        .btn-cancel:hover {
+            background-color: #1e8449; /* Vert foncé au survol */
+        }
+
+        /* Ajouter un fond au bouton au focus pour meilleure accessibilité */
+        button:focus, a:focus {
+            outline: none;
+            box-shadow: 0 0 5px 2px rgba(41, 128, 185, 0.8);
+        }
+    </style>
+    <script>
+        function confirmDelete(event) {
+            // Empêcher le comportement par défaut du formulaire
+            event.preventDefault();
+            // Afficher une boîte de dialogue de confirmation
+            if (confirm("Êtes-vous sûr de vouloir supprimer ce feedback ?")) {
+                // Si l'utilisateur confirme, soumettre le formulaire
+                event.target.form.submit();
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Are you sure you want to delete this feedback?</h1>
+        <p>{{ feedback.comment }}</p>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn-confirm" onclick="confirmDelete(event)">Delete</button>
+            <a href="{% url 'all_feedbacks' %}" class="btn-cancel">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

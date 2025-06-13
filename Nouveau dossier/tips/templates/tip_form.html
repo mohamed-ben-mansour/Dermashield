@@ -1,0 +1,125 @@
+{% extends 'maintemp/base.html' %}
+{% comment %} {% block booutons %}
+                        <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../users/home/">Home</a>
+                        </li>
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../feedback/all">Feedbacks</a>
+                        </li>-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../feedback/all" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Feedbacks</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../feedback/all">List</a></li>
+                                 <li><a class="dropdown-item" href="../../feedback/create">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../forums/" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Forum</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../forums/">List</a></li>
+                                <li><a class="dropdown-item" href="../../forums/create/">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../tips">Tips</a>
+                        </li>-->
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../tips" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tips</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../tips">List</a></li>
+                                <li><a class="dropdown-item" href="../../tips/admin_upload">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">News</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="news.html">News Listing</a></li>
+
+                                <li><a class="dropdown-item" href="news-detail.html">News Detail</a></li>
+                            </ul>
+                        </li>-->
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../events/list">Events</a>
+                        </li>
+
+                        {% if user.is_authenticated %}
+                        <!-- Dynamic Dashboard Link for Logged-In Users -->
+                        <li class="nav-item">
+                            {% if user.is_doctor %}
+                                <a class="nav-link" href="{% url 'doctor_dashboard' %}">Appointments</a>
+                            {% elif user.is_patient %}
+                                <a class="nav-link" href="{% url 'patient_dashboard' %}">Appointments</a>
+                            {% endif %}
+                        </li>
+                    {% else %}
+                        <!-- Redirect to Login Page if User is Not Logged In -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/login/">Appointments</a>
+                        </li>
+                    {% endif %}
+
+                        <li class="nav-item ms-3 d-flex align-items-center">
+    {% if user.is_authenticated %}
+        <a class="nav-link custom-btn custom-border-btn btn" href="/users/logout/">Logout</a>
+        <span class="username-badge2 ms-2">{{ user.username }}</span>
+        <div class="contact-image-wrap2 ms-2">
+            <img src="../../static/temp/images/avatar/studio-portrait-emotional-happy-funny.jpg" class="img-fluid avatar-image2" alt="">
+        </div>
+    {% else %}
+        <a class="nav-link custom-btn custom-border-btn btn" href="/users/login/">Login</a>
+    {% endif %}
+</li>
+                    </ul>
+{% endblock %} {% endcomment %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tip Form</title>
+</head>
+<body class="bg-gray-100">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<div class="relative min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 bg-gray-500 bg-no-repeat bg-cover relative items-center">
+    <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
+    <div class="sm:max-w-lg w-full p-10 bg-white rounded-xl z-10">
+        <div class="text-center">
+            <h2 class="mt-5 text-3xl font-bold text-gray-900">
+                Tips Upload!
+            </h2>
+            <p class="mt-2 text-sm text-gray-400">Here is where you can add Tips!</p>
+        </div>
+        <form class="mt-8 space-y-3" action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p class="text-sm text-gray-300">
+                <span>File type: jpg, jpeg, png, svg</span>
+            </p>
+            <div>
+                <button type="submit" class="my-5 w-full flex justify-center bg-blue-500 text-gray-100 p-4 rounded-full tracking-wide
+                           font-semibold focus:outline-none focus:shadow-outline hover:bg-blue-600 shadow-lg cursor-pointer transition ease-in duration-300">
+                    Upload
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .has-mask {
+        position: absolute;
+        clip: rect(10px, 150px, 130px, 10px);
+    }
+</style>
+</body>
+</html>
+{% endblock %}

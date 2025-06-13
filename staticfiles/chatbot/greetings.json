@@ -1,0 +1,15 @@
+{
+    "greetings": {
+      "welcome": "Welcome to our medical chatbot! How can I assist you today?",
+      "hello": "Hello! Feel free to ask any medical-related questions.",
+      "good_morning": "Good morning! How can I help you?",
+      "good_afternoon": "Good afternoon! How can I assist you?",
+      "good_evening": "Good evening! Do you have any questions for me?",
+      "goodbye": "Goodbye! Take care and stay healthy.",
+      "thank_you": "You're welcome! Let me know if you need further assistance.",
+      "hi" : "Hi! Feel free to ask any medical-related questions.",
+      "i need some help":"Sure how can I help you"
+      
+    }
+  }
+  

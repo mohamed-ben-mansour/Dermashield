@@ -1,0 +1,8 @@
+{% extends 'maintemp/base.html' %}
+{% load static %}
+{% block content %}
+    <h1>Live Emotion Detection</h1>
+    <div>
+        <img src="{% url 'video_feed' %}" style="width: 550px; height: 550px;" alt="Video Stream" />
+    </div>
+{% endblock content %}

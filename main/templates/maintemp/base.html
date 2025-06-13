@@ -1,0 +1,365 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Kind Heart Charity - Donation</title>
+<!-- CSS FILES -->        
+     
+        <link href="{% static 'temp/css/bootstrap.min.css' %}"  rel="stylesheet">
+
+       
+<link href="{% static 'temp/css/bootstrap-icons.css' %}"  rel="stylesheet">
+<style >
+.username-badge2 {
+    font-weight: bold;
+    color: #20c997;
+    padding: 0.4em 1em;
+    border-radius: 20px;
+}
+
+.contact-image-wrap2 {
+    display: flex;
+    align-items: center;
+}
+
+.avatar-image2 {
+    width: 35px; /* Adjust size as needed */
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-left: 8px; /* Space between username and image */
+}
+</style>
+        
+        <link href="{% static 'temp/css/templatemo-kind-heart-charity0.css' %}"  rel="stylesheet">
+<!--
+
+TemplateMo 581 Kind Heart Charity
+
+https://templatemo.com/tm-581-kind-heart-charity
+
+-->
+    </head>
+    
+    <body>
+
+        <header class="site-header">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-lg-8 col-12 d-flex flex-wrap">
+                        <p class="d-flex me-4 mb-0">
+                            <i class="bi-geo-alt me-2"></i>
+                            Tunis,Tunisia
+                        </p>
+
+                        <p class="d-flex mb-0">
+                            <i class="bi-envelope me-2"></i>
+
+                            <a href="mailto:info@company.com">
+                                Dermashield@company.com
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-12 ms-auto d-lg-block d-none">
+                        <ul class="social-icon" style="display: flex; justify-content: space-between; gap: 20px;"> <!-- Flex row with space between items -->
+                            <li class="social-icon-item" style="text-align: center;">
+                                <a href="{% url 'home_calories' %}">
+                                    <img src="{% static 'calories/images/logo.png' %}" class="img-responsive logo" style="width: 80px; height: 40px;" /> <!-- Set fixed width and auto height for consistency -->
+                                </a>
+                            </li>
+                            <li class="social-icon-item" style="text-align: center;">
+                                <a href="{% url 'predict_image' %}">
+                                    <img src="{% static 'calories/images/detection.png' %}" class="img-responsive logo" style="width: 40px; height: 40px;" /> <!-- Set fixed width and auto height for consistency -->
+                                </a>
+                            </li>
+                            <li class="social-icon-item" style="text-align: center;">
+                                <a href="{% url 'live_emotion_detection' %}">
+                                    <img src="{% static 'images/emotion.png' %}" class="img-responsive logo" style="width: 50px; height: 50px;" /> <!-- Set fixed width and auto height for consistency -->
+                                    
+                                </a>
+                            </li>
+<<<<<<< HEAD
+                                    
+                            <li class="social-icon-item" style="text-align: center;">
+                                <a href="{% url 'lobby' %}">
+                                    <img src="{% static 'images/chat.png' %}" class="img-responsive logo" style="width: 50px; height: 50px;" /> <!-- Same width for consistency -->
+                                </a>
+                            </li>
+=======
+>>>>>>> main
+
+                            <li class="social-icon-item" style="text-align: center;">
+                                <a href="{% url 'predict_cancer_risk' %}">
+                                    <img src="{% static 'model/images/ball_icon.png' %}" class="img-responsive logo" style="width: 40px; height: 40px;" /> <!-- Set fixed width and auto height for consistency -->
+                                </a>
+                            </li>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <nav class="navbar navbar-expand-lg bg-light shadow-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="{% static 'temp/images/logo0.png' %}" class="logo img-fluid" alt="Dermashield"> 
+                    <!-- ../../static/temp/images/logo0.png -->
+                    <span>
+                        Dermashield
+                        <small>Skin cancer detection</small>
+                    </span>
+                    
+                </a>
+                <a class="navbar-brand" href="#">
+                
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <!--////////////////////////////////////////////////////////////// -->
+                        <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="{% url 'home' %}">Home</a>
+                        </li>
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../feedback/all">Feedbacks</a>
+                        </li>-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="{% url 'all_feedbacks' %}" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Feedbacks</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="{% url 'all_feedbacks' %}">List</a></li>
+                                 <li><a class="dropdown-item" href="{% url 'feedback_create' %}">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../forums/" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Forum</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../forums/">List</a></li>
+                                <li><a class="dropdown-item" href="../../forums/create/">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../tips">Tips</a>
+                        </li>-->
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="{% url 'main_page' %}" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tips</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="{% url 'main_page' %}">List</a></li>
+                                <li><a class="dropdown-item" href="{% url 'admin_upload' %}">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">News</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="news.html">News Listing</a></li>
+
+                                <li><a class="dropdown-item" href="news-detail.html">News Detail</a></li>
+                            </ul>
+                        </li>-->
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="{% url 'events:event_list' %}">Events</a>
+                        </li>
+
+
+
+                        {% load notification_tags %}
+
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                {% if user.is_doctor %}
+                                    <a class="nav-link" href="{% url 'doctor_dashboard' %}">
+                                        Appointments
+                                        {% if user|has_unread_notifications %}
+                                            <span class="badge bg-danger ms-1">!</span>
+                                        {% endif %}
+                                    </a>
+                                {% elif user.is_patient %}
+                                    <a class="nav-link" href="{% url 'patient_dashboard' %}">
+                                        Appointments
+                                        {% if user|has_unread_notifications %}
+                                            <span class="badge bg-danger ms-1">!</span>
+                                        {% endif %}
+                                    </a>
+                                {% endif %}
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="/users/login/">Appointments</a>
+                            </li>
+                        {% endif %}
+
+
+
+
+
+
+                        <li class="nav-item ms-3 d-flex align-items-center">
+    {% if user.is_authenticated %}
+        <a class="nav-link custom-btn custom-border-btn btn" href="/users/logout/">Logout</a>
+        
+        <div class="contact-image-wrap2 ms-2">
+        <a href="{% url 'profile' %}" >
+                                <span class="username-badge2 ms-2">{{ user.username }}</span>
+                                {% if user.profile_picture %}
+            <img src="{{ user.profile_picture.url }}" class="img-fluid avatar-image2" alt="User Avatar">
+        {% else %}
+            <!-- Default image if no profile picture is uploaded -->
+            <img src="{% static 'temp/images/avatar/studio-portrait-emotional-happy-funny.jpg' %}" class="img-fluid avatar-image2" alt="Default Avatar">
+        {% endif %}</a>
+                            </div>
+    {% else %}
+        <a class="nav-link custom-btn custom-border-btn btn" href="/users/login/">Login</a>
+    {% endif %}
+</li>
+                    </ul>
+ <!--////////////////////////////////////////////////////////////// -->
+                </div>
+            </div>
+        </nav>
+
+        <main>
+
+            <section class="donate-section">
+                <div class="section-overlay"></div>
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-12 mx-auto">
+                            <div class="custom-form donate-form">
+                                
+                                <div>
+    {% block content %}{% endblock %}
+<script>
+    window.addEventListener("popstate", function(event) {
+        // Rediriger vers la page de déconnexion ou une autre page
+        window.location.href = "/users/logout";
+    });
+</script>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-12 mb-4">
+                        <img src="../../static/temp/images/logo00.png" class="logo img-fluid" alt="">
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12 mb-4">
+                        <h5 class="site-footer-title mb-3">Quick Links</h5>
+
+                        <ul class="footer-menu">
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Our Story</a></li>
+
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Newsroom</a></li>
+
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Causes</a></li>
+
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Become a volunteer</a></li>
+
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Partner with us</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-12 mx-auto">
+                        <h5 class="site-footer-title mb-3">Contact Infomation</h5>
+
+                        <p class="text-white d-flex mb-2">
+                            <i class="bi-telephone me-2"></i>
+
+                            <a href="tel: 120-240-9600" class="site-footer-link">
+                                53-339-427
+                            </a>
+                        </p>
+
+                        <p class="text-white d-flex">
+                            <i class="bi-envelope me-2"></i>
+
+                            <a href="mailto:donate@charity.org" class="site-footer-link">
+                                Dermashield@company.com
+                            </a>
+                        </p>
+
+                        <p class="text-white d-flex mt-3">
+                            <i class="bi-geo-alt me-2"></i>
+                            Tunis, Tunisia
+                        </p>
+
+                        <a href="#" class="custom-btn btn mt-3">Get Direction</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="site-footer-bottom">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-7 col-12">
+                            <p class="copyright-text mb-0">Copyright © 2036 <a href="#">Dermashield</a> health Org.
+                        	Design: <a href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+                        </div>
+                        
+                        <div class="col-lg-6 col-md-5 col-12 d-flex justify-content-center align-items-center mx-auto">
+                            <ul class="social-icon">
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link bi-twitter"></a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link bi-facebook"></a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link bi-instagram"></a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link bi-linkedin"></a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a href="https://youtube.com/templatemo" class="social-icon-link bi-youtube"></a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+         <!-- JAVASCRIPT FILES -->
+     
+<script src="{% static 'temp/js/jquery.min.js' %}"></script>
+<script src="{% static 'temp/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'temp/js/jquery.sticky.js' %}"></script>
+<script src="{% static 'temp/js/click-scroll.js' %}"></script>
+<script src="{% static 'temp/js/counter.js' %}"></script>
+<script src="{% static 'temp/js/custom.js' %}"></script>
+
+    </body>
+</html>

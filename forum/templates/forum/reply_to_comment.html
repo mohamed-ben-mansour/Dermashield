@@ -1,0 +1,273 @@
+{% extends 'maintemp/base.html' %}
+{% block booutons %}    
+                <div class="container">
+                <a class="navbar-brand" href="#">
+                <img src="../../static/temp/images/logo0.png" class="logo img-fluid" alt="Dermashield">
+                <span>
+                Dermashield
+                <small>Skin cancer detection</small>/span>
+                        <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../users/home/">Home</a>
+                        </li>
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../feedback/all">Feedbacks</a>
+                        </li>-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../feedback/all" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Feedbacks</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../feedback/all">List</a></li>
+                                 <li><a class="dropdown-item" href="../../feedback/create">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../../" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Forum</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../../">List</a></li>
+                                <li><a class="dropdown-item" href="../../../create/">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../tips">Tips</a>
+                        </li>-->
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../../../tips" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tips</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../../../tips">List</a></li>
+                                <li><a class="dropdown-item" href="../../../../tips/admin_upload">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">News</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="news.html">News Listing</a></li>
+
+                                <li><a class="dropdown-item" href="news-detail.html">News Detail</a></li>
+                            </ul>
+                        </li>-->
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../events/list">Events</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <!-- Dynamic Dashboard Link for Logged-In Users -->
+                        <li class="nav-item">
+                            {% if user.is_doctor %}
+                                <a class="nav-link" href="{% url 'doctor_dashboard' %}">Appointments</a>
+                            {% elif user.is_patient %}
+                                <a class="nav-link" href="{% url 'patient_dashboard' %}">Appointments</a>
+                            {% endif %}
+                        </li>
+                    {% else %}
+                        <!-- Redirect to Login Page if User is Not Logged In -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/login/">Appointments</a>
+                        </li>
+                    {% endif %}
+
+                        <li class="nav-item ms-3 d-flex align-items-center">
+    {% if user.is_authenticated %}
+        <a class="nav-link custom-btn custom-border-btn btn" href="/users/logout/">Logout</a>
+        <span class="username-badge2 ms-2">{{ user.username }}</span>
+        <div class="contact-image-wrap2 ms-2">
+            <img src="../../static/temp/images/avatar/studio-portrait-emotional-happy-funny.jpg" class="img-fluid avatar-image2" alt="">
+        </div>
+    {% else %}
+        <a class="nav-link custom-btn custom-border-btn btn" href="/users/login/">Login</a>
+    {% endif %}
+</li>
+                    </ul>
+{% endblock %}
+
+{% block content %}
+<style>
+
+/* Style global pour la page */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 1.8em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.messages {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.messages li {
+    background-color: #eef6ff;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-size: 1.2em;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1em;
+    height: 200px; /* Increased height */
+    resize: vertical;
+    color: #555;
+    margin-bottom: 10px; /* Add margin for spacing */
+}
+
+/* Emoji Picker Style */
+.emoji-picker-container {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.emoji-picker-container button {
+    font-size: 1.5em; /* Larger emoji button text */
+    padding: 10px 15px; /* Increased padding for larger buttons */
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.emoji-picker-container button:hover {
+    background-color: #e0e0e0;
+}
+
+button.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--button-bg-color);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.2em;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.submit-btn:hover {
+    background-color: var(--button-hover-bg-color);
+}
+
+a.back-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    text-decoration: none;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 6px;
+    text-align: center;
+}
+
+a.back-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+</style>
+
+{% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li class="{{ message.tags }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<h2 class="page-title">Reply to"{{ parent_comment.user.username }}"</h2>
+
+<form method="POST" class="response-form">
+    {% csrf_token %}
+    
+    <div class="form-group">
+        <label for="id_text">Your reply :</label>
+        <textarea id="comment-input" name="text" rows="4"></textarea>
+    </div>
+
+    <div class="emoji-picker-container mb-3 d-flex flex-wrap gap-2">
+        <button type="button" class="btn btn-light border rounded-circle">😊</button>
+        <button type="button" class="btn btn-light border rounded-circle">😂</button>
+        <button type="button" class="btn btn-light border rounded-circle">❤️</button>
+        <button type="button" class="btn btn-light border rounded-circle">👍</button>
+        <button type="button" class="btn btn-light border rounded-circle">😮</button>
+        <button type="button" class="btn btn-light border rounded-circle">🎉</button>
+    </div>
+
+    <button type="submit" class="submit-btn">send</button>
+</form>
+
+<a href="{% url 'forum:forum_details1' forum_id=parent_comment.forum.id %}" class="back-btn">return to forum</a>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const emojiButtons = document.querySelectorAll('.btn.btn-light.border.rounded-circle');
+        const feedbackInput = document.getElementById('comment-input'); // Champ de texte cible
+    
+        if (emojiButtons && feedbackInput) {
+            emojiButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const emoji = button.textContent; // Emoji sélectionné
+                    const cursorPosition = feedbackInput.selectionStart || 0; // Position du curseur
+                    const textBeforeCursor = feedbackInput.value.slice(0, cursorPosition);
+                    const textAfterCursor = feedbackInput.value.slice(cursorPosition);
+    
+                    // Insérer l'émoji au bon endroit
+                    feedbackInput.value = textBeforeCursor + emoji + textAfterCursor;
+    
+                    // Mettre à jour la position du curseur
+                    feedbackInput.setSelectionRange(
+                        cursorPosition + emoji.length,
+                        cursorPosition + emoji.length
+                    );
+    
+                    feedbackInput.focus(); // Ramener le focus sur le champ de texte
+                });
+            });
+        } else {
+            console.error('Emoji buttons or comment input not found!');
+        }
+    });
+</script>
+
+{% endblock %}

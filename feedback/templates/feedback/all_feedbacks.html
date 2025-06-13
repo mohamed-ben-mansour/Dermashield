@@ -1,0 +1,422 @@
+{% extends 'maintemp/base.html' %}
+{% block booutons %}
+                        <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../users/home/">Home</a>
+                        </li>
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../feedback/all">Feedbacks</a>
+                        </li>-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../feedback/all" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Feedbacks</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../feedback/all">List</a></li>
+                                 <li><a class="dropdown-item" href="../../feedback/create">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="forums/" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Forum</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="/forums/">List</a></li>
+                                <li><a class="dropdown-item" href="../../forums/create/">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../tips">Tips</a>
+                        </li>-->
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../tips" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tips</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../tips">List</a></li>
+                                <li><a class="dropdown-item" href="../../tips/admin_upload">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">News</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="news.html">News Listing</a></li>
+
+                                <li><a class="dropdown-item" href="news-detail.html">News Detail</a></li>
+                            </ul>
+                        </li>-->
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../events/list">Events</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <!-- Dynamic Dashboard Link for Logged-In Users -->
+                        <li class="nav-item">
+                            {% if user.is_doctor %}
+                                <a class="nav-link" href="{% url 'doctor_dashboard' %}">Appointments</a>
+                            {% elif user.is_patient %}
+                                <a class="nav-link" href="{% url 'patient_dashboard' %}">Appointments</a>
+                            {% endif %}
+                        </li>
+                    {% else %}
+                        <!-- Redirect to Login Page if User is Not Logged In -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/login/">Appointments</a>
+                        </li>
+                    {% endif %}
+
+                        <li class="nav-item ms-3 d-flex align-items-center">
+    {% if user.is_authenticated %}
+        <a class="nav-link custom-btn custom-border-btn btn" href="/users/logout/">Logout</a>
+        <span class="username-badge2 ms-2">{{ user.username }}</span>
+        <div class="contact-image-wrap2 ms-2">
+            <img src="../../static/temp/images/avatar/studio-portrait-emotional-happy-funny.jpg" class="img-fluid avatar-image2" alt="">
+        </div>
+    {% else %}
+        <a class="nav-link custom-btn custom-border-btn btn" href="/users/login/">Login</a>
+    {% endif %}
+</li>
+                    </ul>
+{% endblock %}
+{% block content %}
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tous les Feedbacks</title>
+    <style>
+        .feedback-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .feedback-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px; /* Espacement ajusté entre les feedbacks */
+            width: 80%; /* Largeur de chaque feedback */
+            max-width: 600px; /* Largeur maximale pour garder une bonne forme */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s; /* Transition pour l'effet de survol */
+        }
+        .feedback-container:hover {
+            transform: scale(1.02); /* Légère augmentation au survol */
+        }
+        .feedback-header {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #2980b9; /* Couleur du nom de l'utilisateur */
+        }
+        .feedback-comment {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        .feedback-date {
+            font-size: 0.9em;
+            color: #777;
+            text-align: right; /* Aligne la date à droite */
+        }
+        /* Style pour ajuster le titre */
+        .title {
+        text-align: center;
+        margin-top: 100px; /* Augmentez cette valeur pour descendre le titre */
+        margin-bottom: 30px; /* Espace sous le titre */
+    }
+    </style>
+</head>
+<body>
+<div class="feedback-wrapper">
+<h2 class="title">Tous les Feedbacks</h2>
+
+{% for feedback in feedbacks %}
+    <div class="feedback-container">
+        <div class="feedback-header">{{ feedback.user.username }}</div>
+        <div class="feedback-comment">{{ feedback.comment }}</div>
+        <div class="feedback-date">{{ feedback.created_at|date:"D d M Y à H:i" }}</div>{% if feedback.user == request.user %}
+        <div class="feedback-actions" style="margin-top: 10px;">
+            <button onclick="window.location.href='{% url 'feedback_edit' feedback.id %}';" style="background-color: #4CAF50; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer; margin-right: 5px;">Modifier</button>
+            <button onclick="{ window.location.href='{% url 'feedback_delete' feedback.id %}'; }" style="background-color: #c0392b; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer;">Supprimer</button>
+        </div>
+    {% endif %}
+    </div>
+{% empty %}
+    <p>Aucun feedback disponible.</p>
+{% endfor %}
+<a href="{% url 'feedback_create' %}" style="
+display: inline-block;
+background-color: #3498db; /* Blue background */
+color: white; /* White text */
+padding: 10px 20px; /* Button padding */
+border-radius: 5px; /* Rounded corners */
+text-decoration: none; /* Remove underline */
+text-align: center;
+margin-top: 20px; /* Space above button */
+font-weight: bold;
+transition: background-color 0.3s; /* Smooth hover effect */
+">Ajouter un Nouveau Feedback</a>
+</div>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tous les Feedbacks</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .feedback-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;       
+            padding: 20px;
+        }
+        .feedback-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s;
+        }
+        .feedback-container:hover {
+            transform: scale(1.02);
+        }
+        .feedback-header {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #2980b9;
+        }
+        .feedback-comment {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        .feedback-date {
+            font-size: 0.9em;
+            color: #777;
+            text-align: right;
+        }
+        .title {
+            text-align: center;
+            margin-top: 100px;
+            margin-bottom: 30px;
+        }
+        .sentiment-section {
+            text-align: center;
+            margin-top: 10px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .positive {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .negative {
+            background-color: #e53935;
+            color: white;
+        }
+        .neutral {
+            background-color: #e0e0e0;
+            color: #616161;
+        }
+        .rating-display {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .star {
+            font-size: 1.5em;
+            color: #ccc; /* Couleur de l'étoile vide */
+            margin: 0 2px;
+        }
+        .star.filled {
+            color: #FFD700; /* Jaune pour les étoiles remplies */
+        }
+        /* Style pour la pagination */
+        .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.pagination a.btn-pagination {
+    padding: 10px 20px;
+    background-color: #E6E6FA; /* Lavande douce */
+    color: #4B0082; /* Violet foncé pour le texte */
+    text-decoration: none;
+    border-radius: 25px; /* Coins arrondis */
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    transition: all 0.3s ease; /* Animation fluide */
+}
+
+.pagination a.btn-pagination:hover {
+    background-color: #D1C7E3; /* Lavande plus foncée au survol */
+    transform: translateY(-2px); /* Légère élévation */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2); /* Augmentation de l'ombre */
+}
+
+.pagination .pagination-info {
+    font-size: 16px;
+    color: #777; /* Gris neutre pour le texte */
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+
+        .filter-section {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .filter-section select {
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;}
+
+            .feedback-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .feedback-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .statistics-button {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .statistics-button a {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #4E2A1A; /* Marron foncé pour le texte */
+            background-color: #FFA07A; 
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .statistics-button a:hover {
+            background-color: #FF8C42; /* Corail plus foncé au survol */
+            transform: scale(1.05);
+        }
+        .statistics-button a i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        .statistics-button a span {
+            font-weight: bold;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="feedback-wrapper">
+        <h2 class="title">All Feedbacks</h2>
+            <!-- Bouton vers la page Statistics -->
+    <div class="statistics-button">
+        <a href="{% url 'feedback_statistics' %}">
+            <i class="fas fa-chart-bar"></i>
+            <span>View Statistics</span>
+        </a>
+    </div>
+
+    
+                <!-- Zone de tri par sentiment -->
+                <div class="filter-section">
+                    <form method="get" action="{% url 'all_feedbacks' %}">
+                        <label for="sentiment">Filter</label>
+                        <select name="sentiment" id="sentiment" onchange="this.form.submit()">
+                            <option value="">All</option>
+                            <option value="Positif" {% if sentiment_filter == 'Positif' %}selected{% endif %}>Positif</option>
+                            <option value="Négatif" {% if sentiment_filter == 'Négatif' %}selected{% endif %}>Negatif</option>
+                            <option value="Neutre" {% if sentiment_filter == 'Neutre' %}selected{% endif %}>Neutral</option>
+                        </select>
+                    </form>
+                </div>
+    
+        {% for feedback in page_obj %}
+            <div class="feedback-container">
+                <div class="feedback-header">{{ feedback.user.username }}</div>
+                <div class="feedback-comment">{{ feedback.comment }}</div>
+                <!-- Affichage de la note en étoiles -->
+                <div class="rating-display">
+                    {% for star in "12345" %}
+                        <span class="star {% if forloop.counter <= feedback.rating %}filled{% endif %}">★</span>
+                    {% endfor %}
+                </div>
+                <div class="feedback-date">{{ feedback.created_at|date:"D d M Y à H:i" }}</div>
+                {% if feedback.user == request.user %}
+                    <div class="feedback-actions" style="margin-top: 10px;">
+                        <button onclick="window.location.href='{% url 'feedback_edit' feedback.id %}';" style="background-color: #4CAF50; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer; margin-right: 5px;">Edit</button>
+                        <button onclick="window.location.href='{% url 'feedback_delete' feedback.id %}';" style="background-color: #c0392b; color: white; padding: 8px 12px; border: none; border-radius: 5px; cursor: pointer;">Delete</button>
+                    </div>
+                {% endif %}
+                <!-- Section sentiment -->
+                <div class="sentiment-section {% if feedback.sentiment == 'Positif' %}positive{% elif feedback.sentiment == 'Négatif' %}negative{% else %}neutral{% endif %}">
+                    Feeling {{ feedback.sentiment }}
+                </div>
+            </div>
+        {% empty %}
+            <p>
+                No feedback available.</p>
+        {% endfor %}
+
+
+        
+        <!-- Pagination -->
+        <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page=1" class="btn-pagination">&laquo; Première</a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="btn-pagination">Précédente</a>
+            {% endif %}
+            
+            <span class="pagination-info">Page {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+            
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}" class="btn-pagination">Next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}" class="btn-pagination">Previous &raquo;</a>
+            {% endif %}
+        </div>
+        
+        
+        <a href="{% url 'feedback_create' %}" style="display: inline-block; background-color: #3498db; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; text-align: center; margin-top: 20px; font-weight: bold; transition: background-color 0.3s;">Add A New Feedback</a>
+    </div>
+</body>
+</html>
+
+
+{% endblock %}

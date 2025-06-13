@@ -1,0 +1,85 @@
+{% extends 'maintemp/base.html' %}
+
+{% comment %} {% block booutons %}
+    <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <a class="nav-link click-scroll" href="../../users/home/">Home</a>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="nav-link click-scroll dropdown-toggle" href="{% url 'admin_upload' %}" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tips</a>
+            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                <li><a class="dropdown-item" href="{% url 'admin_upload' %}">ADD</a></li>  <!-- Correct link for admin_upload -->
+            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link click-scroll" href="../../events/list">Events</a>
+        </li>
+
+        <li class="nav-item ms-3 d-flex align-items-center">
+            {% if user.is_authenticated %}
+                <a class="nav-link custom-btn custom-border-btn btn" href="/users/logout/">Logout</a>
+                <span class="username-badge2 ms-2">{{ user.username }}</span>
+                <div class="contact-image-wrap2 ms-2">
+                    <img src="../../static/temp/images/avatar/studio-portrait-emotional-happy-funny.jpg" class="img-fluid avatar-image2" alt="">
+                </div>
+            {% else %}
+                <a class="nav-link custom-btn custom-border-btn btn" href="/users/login/">Login</a>
+            {% endif %}
+        </li>
+    </ul>
+{% endblock %} {% endcomment %}
+
+{% block content %}
+    <!-- Including TailwindCSS via CDN -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+    <h2 class="font-semibold text-2xl sm:text-3xl text-gray-800 mb-6">
+        {% if form.instance.pk %}
+            Edit Tip
+        {% else %}
+            Add New Tip
+        {% endif %}
+    </h2>
+
+    <div class="mt-5">
+        <!-- Form action dynamically set based on whether it's an existing tip or a new one -->
+        <form method="POST" enctype="multipart/form-data" class="space-y-4">
+    {% csrf_token %}
+    
+    <!-- Title Field -->
+    <div class="form-group">
+        <label for="id_title" class="block text-sm font-medium text-gray-700">Title</label>
+        {{ form.title }}
+    </div>
+    
+    <!-- Description Field -->
+    <div class="form-group">
+        <label for="id_description" class="block text-sm font-medium text-gray-700">Description</label>
+        {{ form.description }}
+    </div>
+    
+    <!-- Category Field -->
+    <div class="form-group">
+        <label for="id_category" class="block text-sm font-medium text-gray-700">Category</label>
+        {{ form.category }}
+    </div>
+    
+    <!-- Image Upload Field -->
+    <div class="form-group">
+        <label for="image-upload" class="image-upload-label border-4 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center h-60 p-4 cursor-pointer hover:border-blue-400 transition ease-in duration-200 text-center">
+            <span class="text-gray-500">Drag & Drop or Click to Upload</span>
+        </label>
+        {{ form.image }}
+    </div>
+    
+    <!-- Submit Button -->
+    <div class="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse">
+        <button type="button" class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-full hover:shadow-lg hover:bg-gray-100">Cancel</button>
+        <button type="submit" name="submit" value="1" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-2 px-6 rounded-full shadow-md hover:shadow-lg">Save</button>
+    </div>
+</form>
+
+    </div>
+{% endblock %}

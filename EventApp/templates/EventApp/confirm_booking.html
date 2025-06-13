@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f9f5; /* Soft pastel green background */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50; /* Pastel Green */
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .confirmation-message {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #555;
+            text-align: center;
+        }
+        .seat-info {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #388E3C; /* Darker green for emphasis */
+            text-align: center;
+            margin: 10px 0;
+        }
+        .event-name {
+            font-size: 1.2em;
+            color: #888;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+        }
+        .buttons button, .buttons a {
+            background-color: #4CAF50; /* Pastel Green */
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+        .buttons button:hover, .buttons a:hover {
+            background-color: #388E3C; /* Darker green on hover */
+        }
+        .cancel-link {
+            font-size: 1.1em;
+            color: #888;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Confirm Booking</h1>
+    
+        <p class="confirmation-message">
+            Are you sure you want to book the following seat for the event?
+        </p>
+    
+        <div class="seat-info">
+            Seat: {{ seat.row }}{{ seat.number }}
+        </div>
+    
+        <form method="POST" action="{% url 'events:book_seat' seat.id %}">
+            {% csrf_token %}
+            <div class="buttons">
+                <button type="submit">Confirm</button>
+                <a href="{% url 'events:event_seating' event_id=seat.event.id %}" class="cancel-link">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

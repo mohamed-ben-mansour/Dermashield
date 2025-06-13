@@ -1,0 +1,252 @@
+{% extends 'maintemp/app_base.html' %}
+{% comment %} {% block booutons %}
+                        <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="{% url 'home' %}">Home</a>
+                        </li>
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../feedback/all">Feedbacks</a>
+                        </li>-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../feedback/all" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Feedbacks</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../feedback/all">List</a></li>
+                                 <li><a class="dropdown-item" href="../../feedback/create">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../forums/" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Forum</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../forums/">List</a></li>
+                                <li><a class="dropdown-item" href="../../forums/create/">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../tips">Tips</a>
+                        </li>-->
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../tips" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tips</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../tips">List</a></li>
+                                <li><a class="dropdown-item" href="../../tips/admin_upload">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">News</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="news.html">News Listing</a></li>
+
+                                <li><a class="dropdown-item" href="news-detail.html">News Detail</a></li>
+                            </ul>
+                        </li>-->
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../events/list">Events</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <!-- Dynamic Dashboard Link for Logged-In Users -->
+                        <li class="nav-item">
+                            {% if user.is_doctor %}
+                                <a class="nav-link" href="{% url 'doctor_dashboard' %}">Appointments</a>
+                            {% elif user.is_patient %}
+                                <a class="nav-link" href="{% url 'patient_dashboard' %}">Appointments</a>
+                            {% endif %}
+                        </li>
+                    {% else %}
+                        <!-- Redirect to Login Page if User is Not Logged In -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/login/">Appointments</a>
+                        </li>
+                    {% endif %}
+
+                        <li class="nav-item ms-3 d-flex align-items-center">
+    {% if user.is_authenticated %}
+        <a class="nav-link custom-btn custom-border-btn btn" href="/users/logout/">Logout</a>
+        <span class="username-badge2 ms-2">{{ user.username }}</span>
+        <div class="contact-image-wrap2 ms-2">
+            <img src="../../static/temp/images/avatar/studio-portrait-emotional-happy-funny.jpg" class="img-fluid avatar-image2" alt="">
+        </div>
+    {% else %}
+        <a class="nav-link custom-btn custom-border-btn btn" href="/users/login/">Login</a>
+    {% endif %}
+</li>
+                    </ul>
+{% endblock %} {% endcomment %}
+{% block content %}
+
+<style>
+    table .time-slot.available:hover {
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+table .time-slot.selected-slot {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+}
+
+table .weekday-column.highlighted {
+    background-color: lightblue;
+    font-weight: bold;
+}
+
+table .time-slot.disabled-slot {
+    background-color: lightgray;
+    cursor: not-allowed;
+}
+
+</style>
+
+<h1>Edit Appointment</h1>
+<form method="post" id="appointment-form">
+    {% csrf_token %}
+    {{ form.patient.label }}: {{ form.patient }}
+    {{ form.type.label }}: {{ form.type }}
+
+    <!-- Slot Selection -->
+    <h3>Select a Slot</h3>
+    <input type="date" id="date-field" name="date" value="{{ today_date }}" required>
+
+    <p id="selected-appointment">Selected Appointment: None</p>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Time</th>
+                {% for day in weekdays %}
+                    <th id="day-{{ day }}" class="weekday-column">{{ day }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for slot in slots_table %}
+                <tr>
+                    <td>{{ slot.time }}</td>
+                    {% for day in weekdays %}
+                        <td 
+                            class="time-slot {% if slot.available %}available{% else %}unavailable{% endif %}"
+                            data-time="{{ slot.time }}"
+                            data-day="{{ day }}">
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Hidden fields for storing selected date and slot -->
+    <input type="hidden" id="selected-date" name="selected_date" value="{{ today_date }}">
+    <input type="hidden" id="selected-time" name="selected_time">
+
+    {% if note_formset %}
+        <h3>Notes</h3>
+        <div id="note-form-container">
+            {{ note_formset.management_form }}
+            {% for note_form in note_formset %}
+                <div class="note-form">
+                    {{ note_form.as_p }}
+                    <button type="button" class="remove-note-button btn btn-danger">Remove Note</button>
+                </div>
+            {% endfor %}
+        </div>
+        <button type="button" onclick="addNoteForm()" class="btn btn-secondary">Add Another Note</button>
+    {% endif %}
+
+    <button type="submit" class="btn btn-success mt-3">Save Changes</button>
+</form>
+
+<script>
+    const dateField = document.getElementById('date-field');
+    const selectedAppointmentText = document.getElementById('selected-appointment');
+    const selectedDateField = document.getElementById('selected-date');
+    const selectedTimeField = document.getElementById('selected-time');
+
+    // Highlight selected column and slot
+    function highlightSelectedDay(selectedDate) {
+        const selectedDay = new Date(selectedDate).toLocaleDateString('en-US', { weekday: 'long' });
+        document.querySelectorAll('.weekday-column').forEach(column => {
+            column.classList.remove('highlighted');
+            if (column.textContent.trim() === selectedDay) {
+                column.classList.add('highlighted');
+            }
+        });
+
+        document.querySelectorAll('.time-slot').forEach(slot => {
+            const day = slot.dataset.day;
+            if (day === selectedDay) {
+                slot.classList.remove('disabled-slot');
+            } else {
+                slot.classList.add('disabled-slot');
+            }
+        });
+    }
+
+    // Handle slot selection
+    document.querySelectorAll('.time-slot.available').forEach(slot => {
+        slot.addEventListener('click', function () {
+            const time = this.dataset.time;
+            const day = this.dataset.day;
+            const selectedDate = new Date(dateField.value);
+            const selectedDay = selectedDate.toLocaleDateString('en-US', { weekday: 'long' });
+
+            if (day === selectedDay) {
+                document.querySelectorAll('.time-slot').forEach(slot => slot.classList.remove('selected-slot'));
+                this.classList.add('selected-slot');
+
+                selectedAppointmentText.textContent = `Selected Appointment: ${day}, ${dateField.value} at ${time}`;
+                selectedTimeField.value = time.split(' - ')[0];
+            }
+        });
+    });
+
+    // Automatically highlight the appointment's current day
+    highlightSelectedDay(dateField.value);
+
+    // Handle date selection
+    dateField.addEventListener('change', () => {
+        const selectedDate = dateField.value;
+        highlightSelectedDay(selectedDate);
+
+        selectedAppointmentText.textContent = 'Selected Appointment: None';
+        selectedDateField.value = selectedDate;
+    });
+
+    function addNoteForm() {
+        const formContainer = document.getElementById('note-form-container');
+        const totalFormsInput = document.getElementById('id_notes-TOTAL_FORMS');
+        const currentFormCount = parseInt(totalFormsInput.value, 10);
+
+        const newNoteForm = document.createElement('div');
+        newNoteForm.className = 'note-form';
+        const emptyFormHTML = document.getElementById('empty-form-template').innerHTML.replace(/__prefix__/g, currentFormCount);
+        newNoteForm.innerHTML = emptyFormHTML;
+
+        formContainer.appendChild(newNoteForm);
+        totalFormsInput.value = currentFormCount + 1;
+
+        attachRemoveNoteHandler(newNoteForm.querySelector('.remove-note-button'));
+    }
+
+    function attachRemoveNoteHandler(button) {
+        button.addEventListener('click', function () {
+            const noteForm = button.closest('.note-form');
+            const deleteMarker = noteForm.querySelector('.delete-marker');
+            if (deleteMarker) {
+                deleteMarker.checked = true;
+            }
+            noteForm.style.display = 'none';
+        });
+    }
+
+    document.querySelectorAll('.remove-note-button').forEach(button => attachRemoveNoteHandler(button));
+</script>
+
+{% endblock %}

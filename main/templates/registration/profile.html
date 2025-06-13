@@ -1,0 +1,33 @@
+{% extends 'maintemp/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card shadow-lg border-0">
+        <div class="card-body p-4">
+            <h2 class="text-center mb-4" style="font-weight: bold;">My Profile</h2>
+            <div class="row align-items-center">
+                <!-- Profile Picture -->
+                <div class="col-md-4 text-center mb-3">
+                    
+                        <img src="{{ user.profile_picture.url }}" alt="Profile Picture" class="img-fluid rounded-circle border" style="max-width: 150px;">
+                    
+                </div>
+                <!-- Profile Details -->
+                <div class="col-md-8">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Username:</strong> {{ user.username }}</li>
+                        <li class="list-group-item"><strong>Email:</strong> {{ user.email }}</li>
+                        <li class="list-group-item"><strong>First Name:</strong> {{ user.first_name }}</li>
+                        <li class="list-group-item"><strong>Last Name:</strong> {{ user.last_name }}</li>
+                        <li class="list-group-item"><strong>Date of Birth:</strong> {{ user.date_of_birth }}</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Edit Profile Button -->
+            <div class="text-center mt-4">
+                <a href="{% url 'update_profile' %}" class="btn btn-primary btn-lg px-4">Edit Profile</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

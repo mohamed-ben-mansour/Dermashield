@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Feedbacks</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8f0; /* Fond très clair pour un thème de santé */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #005A00; /* Vert foncé */
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ccc; /* Bordure légère */
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007A33; /* Vert santé */
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #e0f7e0; /* Vert très clair pour les lignes paires */
+        }
+
+        tr:hover {
+            background-color: #c8e6c9; /* Vert clair au survol */
+        }
+
+        .action-button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            margin-right: 5px; /* Espace entre les boutons */
+        }
+
+        .edit-button {
+            background-color: #007BFF; /* Bleu pour modifier */
+        }
+
+        .edit-button:hover {
+            background-color: #0056b3; /* Bleu foncé au survol */
+        }
+
+        .delete-button {
+            background-color: #e53935; /* Rouge vif pour supprimer */
+        }
+
+        .delete-button:hover {
+            background-color: #c62828; /* Rouge foncé au survol */
+        }
+
+        .add-feedback {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #388E3C; /* Vert pour le bouton Ajouter */
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .add-feedback:hover {
+            background-color: #2e7d32; /* Vert foncé au survol */
+        }
+
+        .sentiment {
+            font-weight: bold;
+            color: #007A33; /* Vert santé */
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste des Feedbacks</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Commentaire</th>
+                <th>Créé le</th>
+                <th>Mis à jour le</th>
+                <th>Sentiment</th> <!-- Nouvelle colonne pour afficher le sentiment -->
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in feedbacks %}
+            <tr>
+                <td>{{ feedback.id }}</td>
+                <td>{{ feedback.comment }}</td>
+                <td>{{ feedback.created_at }}</td>
+                <td>{{ feedback.updated_at }}</td>
+                <td>
+                    <span class="sentiment">{{ feedback.sentiment }}</span> <!-- Affichage du sentiment -->
+                </td>
+                <td>
+                    <a href="{% url 'feedback_edit' feedback.id %}" class="action-button edit-button">Modifier</a>
+                    <a href="{% url 'feedback_delete' feedback.id %}" class="action-button delete-button">Supprimer</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">Aucun feedback disponible.</td> <!-- La cellule occupe 6 colonnes maintenant -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'feedback_create' %}" class="add-feedback">Ajouter un Nouveau Feedback</a>
+    <a href="{% url 'all_feedbacks' %}">Voir tous les feedbacks</a>
+</body>
+</html>
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste des Feedbacks</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8f0; /* Fond très clair pour un thème de santé */
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #005A00; /* Vert foncé */
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ccc; /* Bordure légère */
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007A33; /* Vert santé */
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #e0f7e0; /* Vert très clair pour les lignes paires */
+        }
+
+        tr:hover {
+            background-color: #c8e6c9; /* Vert clair au survol */
+        }
+
+        .action-button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            margin-right: 5px; /* Espace entre les boutons */
+        }
+
+        .edit-button {
+            background-color: #007BFF; /* Bleu pour modifier */
+        }
+
+        .edit-button:hover {
+            background-color: #0056b3; /* Bleu foncé au survol */
+        }
+
+        .delete-button {
+            background-color: #e53935; /* Rouge vif pour supprimer */
+        }
+
+        .delete-button:hover {
+            background-color: #c62828; /* Rouge foncé au survol */
+        }
+
+        .add-feedback {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #388E3C; /* Vert pour le bouton Ajouter */
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .add-feedback:hover {
+            background-color: #2e7d32; /* Vert foncé au survol */
+        }
+    </style>
+</head>
+<body>
+    <h1>Liste des Feedbacks</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Commentaire</th>
+                <th>Créé le</th>
+                <th>Mis à jour le</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for feedback in feedbacks %}
+            <tr>
+                <td>{{ feedback.id }}</td>
+                <td>{{ feedback.comment }}</td>
+                <td>{{ feedback.created_at }}</td>
+                <td>{{ feedback.updated_at }}</td>
+                <td>
+                    <a href="{% url 'feedback_edit' feedback.id %}" class="action-button edit-button">Modifier</a>
+                    <a href="{% url 'feedback_delete' feedback.id %}" class="action-button delete-button">Supprimer</a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Aucun feedback disponible.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{% url 'feedback_create' %}" class="add-feedback">Ajouter un Nouveau Feedback</a>
+    <a href="{% url 'all_feedbacks' %}">Voir tous les feedbacks</a>
+</body>
+</html> -->
+

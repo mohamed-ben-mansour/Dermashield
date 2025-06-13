@@ -1,0 +1,202 @@
+{% extends 'maintemp/base.html' %}
+
+{% block boutons %}
+<ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+        <a class="nav-link click-scroll" href="../../users/home/">Home</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link click-scroll dropdown-toggle" href="../../feedback/all" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Feedbacks</a>
+        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+            <li><a class="dropdown-item" href="../../feedback/all">List</a></li>
+            <li><a class="dropdown-item" href="../../feedback/create">ADD</a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link click-scroll dropdown-toggle" href="../../forums/" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Forum</a>
+        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+            <li><a class="dropdown-item" href="../../forums/">List</a></li>
+            <li><a class="dropdown-item" href="../../forums/create/">ADD</a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link click-scroll dropdown-toggle" href="../../tips" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tips</a>
+        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+            <li><a class="dropdown-item" href="../../tips">List</a></li>
+            <li><a class="dropdown-item" href="../../tips/admin_upload">ADD</a></li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link click-scroll" href="../../events/list">Events</a>
+    </li>
+    <li class="nav-item ms-3 d-flex align-items-center">
+        {% if user.is_authenticated %}
+            <a class="nav-link custom-btn custom-border-btn btn" href="/users/logout/">Logout</a>
+            <span class="username-badge2 ms-2">{{ user.username }}</span>
+            <div class="contact-image-wrap2 ms-2">
+                <img src="../../static/temp/images/avatar/studio-portrait-emotional-happy-funny.jpg" class="img-fluid avatar-image2" alt="">
+            </div>
+        {% else %}
+            <a class="nav-link custom-btn custom-border-btn btn" href="/users/login/">Login</a>
+        {% endif %}
+    </li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class="section events" id="events">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12 text-center">
+                <div class="section-heading mb-5">
+                    <h2>Event List</h2>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <!-- Search Form -->
+                <form method="GET" action="{% url 'events:event_list' %}" class="d-flex mb-4">
+                    <input type="text" name="search" value="{{ search_query }}" placeholder="Search events" class="form-control me-2" />
+                    <button type="submit" class="btn pastel-green-btn">Search</button>
+                </form>
+
+                <!-- Sorting Options -->
+                <div class="sorting-container mb-4">
+                    <form method="GET" action="{% url 'events:event_list' %}">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <select name="sort" id="sort" class="form-select w-auto">
+                                <option value="asc" {% if sort_order == 'asc' %}selected{% endif %}>Ascending</option>
+                                <option value="desc" {% if sort_order == 'desc' %}selected{% endif %}>Descending</option>
+                            </select>
+                            <button type="submit" class="btn pastel-green-btn ms-2">Sort</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Display Events -->
+                <div class="event-list">
+                    {% if events %}
+                        <div class="list-unstyled">
+                            {% for event in events %}
+                                <div class="mb-4">
+                                    <h3>{{ event.event_title }}</h3>
+                                    <p>{{ event.description }}</p>
+                                    <p><strong>Start Date:</strong> {{ event.start_date }}</p>
+                                    <p><strong>End Date:</strong> {{ event.end_date }}</p>
+                                    <a href="{% url 'events:event_seating' event.id %}" class="btn pastel-green-btn">Go to Event Seating</a>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        <p>No events found matching your search.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for event in list %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="event-item border rounded p-3 shadow-sm">
+                    <div class="row">
+                        <div class="col-lg-12 mb-3">
+                            <div class="image">
+                                <img src="{{ event.affiche.url }}" alt="{{ event.event_title }}" class="img-fluid rounded">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <h4>{{ event.event_title }}</h4>
+                            <p><strong>Date:</strong> {{ event.start_date|date:"d M Y H:i" }} - {{ event.end_date|date:"d M Y H:i" }}</p>
+                            <p><strong>Location:</strong> {{ event.location }}</p>
+                            <a href="{% url 'events:event_details' event.id %}" class="btn pastel-green-btn">
+                                <i class="fa fa-angle-right"></i> Check Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+                <p class="col-lg-12 text-center">No events are currently available.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<style>
+.pastel-green-btn {
+    background-color: #55AD9B;
+    border-color: #55AD9B;
+    color: white;
+}
+
+.pastel-green-btn:hover {
+    background-color: #4b9e8e;
+    border-color: #4b9e8e;
+}
+
+.event-list .list-unstyled {
+    padding: 0;
+    margin: 0;
+}
+
+.event-list div {
+    margin-bottom: 1.5em;
+}
+
+.sorting-container form {
+    display: inline-block;
+    width: 100%;
+}
+
+.sorting-container select {
+    width: auto;
+    margin-right: 10px;
+}
+
+.sorting-container button {
+    width: auto;
+    margin-top: 2px;
+}
+
+.event-item {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.event-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.event-item .image img {
+    border-radius: 8px;
+    max-height: 200px;
+    object-fit: cover;
+}
+
+.event-item h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+}
+
+.event-item p {
+    font-size: 1em;
+    color: #666;
+}
+
+.event-item a {
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .event-item .image img {
+        height: 150px;
+    }
+}
+</style>
+
+{% endblock %}

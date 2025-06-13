@@ -1,0 +1,130 @@
+{% extends 'maintemp/base.html' %}
+
+{% block booutons %}
+<ul class="navbar-nav ms-auto">
+    <li class="nav-item">
+        <a class="nav-link click-scroll" href="../../users/home/">Home</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link click-scroll dropdown-toggle" href="../../feedback/all" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Feedbacks</a>
+        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+            <li><a class="dropdown-item" href="../../feedback/all">List</a></li>
+            <li><a class="dropdown-item" href="../../feedback/create">ADD</a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link click-scroll dropdown-toggle" href="../../forums/" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Forum</a>
+        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+            <li><a class="dropdown-item" href="../../forums/">List</a></li>
+            <li><a class="dropdown-item" href="../../forums/create/">ADD</a></li>
+        </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link click-scroll dropdown-toggle" href="../../tips" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tips</a>
+        <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+            <li><a class="dropdown-item" href="../../tips">List</a></li>
+            <li><a class="dropdown-item" href="../../tips/admin_upload">ADD</a></li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link click-scroll" href="../../events/list">Events</a>
+    </li>
+    {% if user.is_authenticated %}
+    <li class="nav-item">
+        {% if user.is_doctor %}
+            <a class="nav-link" href="{% url 'doctor_dashboard' %}">Appointments</a>
+        {% elif user.is_patient %}
+            <a class="nav-link" href="{% url 'patient_dashboard' %}">Appointments</a>
+        {% endif %}
+    </li>
+    {% else %}
+    <li class="nav-item">
+        <a class="nav-link" href="/users/login/">Appointments</a>
+    </li>
+    {% endif %}
+    <li class="nav-item ms-3 d-flex align-items-center">
+        {% if user.is_authenticated %}
+            <a class="nav-link custom-btn custom-border-btn btn" href="/users/logout/">Logout</a>
+            <span class="username-badge2 ms-2">{{ user.username }}</span>
+            <div class="contact-image-wrap2 ms-2">
+                <img src="../../static/temp/images/avatar/studio-portrait-emotional-happy-funny.jpg" class="img-fluid avatar-image2" alt="">
+            </div>
+        {% else %}
+            <a class="nav-link custom-btn custom-border-btn btn" href="/users/login/">Login</a>
+        {% endif %}
+    </li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<style>
+    .title {
+        text-align: center;
+        margin-top: 80px;
+        margin-bottom: 20px;
+        color: #55AD9B;
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .content-container {
+        background-color: #f8f9fa; /* Light background for contrast */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .attribute {
+        font-weight: bold;
+    }
+
+    .details-section {
+        margin-top: 20px;
+        line-height: 1.6;
+    }
+
+    .btn-custom {
+        background-color: #55AD9B;
+        border-color: #55AD9B;
+        color: white;
+        padding: 10px 20px;
+        font-size: 1rem;
+        border-radius: 4px;
+    }
+
+    .btn-custom:hover {
+        background-color: #4A9C84;
+        border-color: #4A9C84;
+    }
+
+    .btn-link {
+        font-size: 1rem;
+        text-decoration: none;
+        color: #55AD9B;
+    }
+
+    .btn-link:hover {
+        text-decoration: underline;
+        color: #4A9C84;
+    }
+</style>
+<div class="d-flex align-items-center justify-content-center min-vh-100">
+    <div class="container content-container">
+        <div class="text-start mb-3">
+            <a href="{% url 'events:event_list' %}" class="btn btn-link">Back to List</a>
+        </div>
+        <h1 class="title">{{ event.event_title }}</h1>
+        <hr />
+        <div class="details-section">
+            <p><span class="attribute">Description:</span> {{ event.description }}</p>
+            <p><span class="attribute">Start Date:</span> {{ event.start_date }}</p>
+            <p><span class="attribute">End Date:</span> {{ event.end_date }}</p>
+            <p><span class="attribute">Location:</span> {{ event.location }}</p>
+        </div>
+        <div class="text-center mt-4">
+            <a href="{% url 'events:event_seating' event.id %}" class="btn btn-custom">Registration</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

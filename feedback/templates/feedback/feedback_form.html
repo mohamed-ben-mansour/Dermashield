@@ -1,0 +1,372 @@
+{% extends 'maintemp/base.html' %}
+{% block booutons %}
+                        <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../users/home/">Home</a>
+                        </li>
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../feedback/all">Feedbacks</a>
+                        </li>-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../feedback/all" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Feedbacks</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../feedback/all">List</a></li>
+                                 <li><a class="dropdown-item" href="../../feedback/create">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../forums/" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Forum</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="{% url 'forum_list' %}">List</a></li>
+                                <li><a class="dropdown-item" href="../../forums/create/">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../tips">Tips</a>
+                        </li>-->
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../tips" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tips</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../tips">List</a></li>
+                                <li><a class="dropdown-item" href="../../tips/admin_upload">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">News</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="news.html">News Listing</a></li>
+
+                                <li><a class="dropdown-item" href="news-detail.html">News Detail</a></li>
+                            </ul>
+                        </li>-->
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../events/list">Events</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <!-- Dynamic Dashboard Link for Logged-In Users -->
+                        <li class="nav-item">
+                            {% if user.is_doctor %}
+                                <a class="nav-link" href="{% url 'doctor_dashboard' %}">Appointments</a>
+                            {% elif user.is_patient %}
+                                <a class="nav-link" href="{% url 'patient_dashboard' %}">Appointments</a>
+                            {% endif %}
+                        </li>
+                    {% else %}
+                        <!-- Redirect to Login Page if User is Not Logged In -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/login/">Appointments</a>
+                        </li>
+                    {% endif %}
+
+                        <li class="nav-item ms-3 d-flex align-items-center">
+    {% if user.is_authenticated %}
+        <a class="nav-link custom-btn custom-border-btn btn" href="/users/logout/">Logout</a>
+        <span class="username-badge2 ms-2">{{ user.username }}</span>
+        <div class="contact-image-wrap2 ms-2">
+            <img src="../../../static/temp/images/avatar/studio-portrait-emotional-happy-funny.jpg" class="img-fluid avatar-image2" alt="">
+        </div>
+    {% else %}
+        <a class="nav-link custom-btn custom-border-btn btn" href="/users/login/">Login</a>
+    {% endif %}
+</li>
+                    </ul>
+{% endblock %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un Nouveau Feedback</title>
+    <style>
+    body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e8f5e9; /* Vert clair apaisant */
+            margin: 0;
+            padding: 20px;
+            color: #333; /* Texte sombre pour une bonne lisibilité */
+        }
+
+        h1 {
+            color: #00796b; /* Vert foncé (couleur associée à la santé) */
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 25px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #00796b;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            resize: vertical;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .rating {
+            display: flex;
+            justify-content: center;
+            direction: row-reverse;
+            margin-bottom: 20px;
+        }
+
+        .rating input {
+            display: none;
+        }
+
+        .rating label {
+            font-size: 2rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .rating input:checked ~ label {
+            color: gold;
+        }
+
+        .rating label:hover,
+        .rating label:hover ~ label {
+            color: gold;
+        }
+
+        .submit-button {
+            background-color: #00796b; /* Vert pour le bouton de soumission */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+            font-size: 1rem;
+        }
+
+        .submit-button:hover {
+            background-color: #004d40; /* Vert foncé au survol */
+        }
+
+        .cancel-button {
+            display: block;
+            margin: 20px auto;
+            text-align: center;
+            text-decoration: none;
+            color: #00796b;
+            font-size: 1rem;
+        }
+
+        .cancel-button:hover {
+            text-decoration: underline;
+        }
+
+        .form-title {
+            color: #00796b;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        #message-container {
+    position: fixed;
+    top: 10%; /* Place le conteneur en haut, à 10% de la hauteur */
+    left: 50%; /* Centre horizontalement */
+    transform: translateX(-50%); /* Ajuste pour un vrai centrage horizontal */
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    max-width: 80%; /* Limite la largeur si le message est long */
+    text-align: center; /* Centre le texte à l'intérieur */
+}
+
+
+    .message {
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: opacity 0.5s ease;
+    }
+
+    .message.error {
+        background-color: #e74c3c;
+    }
+
+    .message.success {
+        background-color: #2ecc71;
+    }
+
+    .message.info {
+        background-color: #3498db;
+    }
+ 
+    #emoji-picker {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px; /* Espace entre le textarea et les emojis */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.emoji {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.emoji:hover {
+    background-color: #f0f0f0;
+}
+
+
+    #feedback-input {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>
+
+</style>
+
+
+    </style>
+</head>
+<body>
+
+    {% if messages %}
+    <div id="message-container">
+        {% for message in messages %}
+            <div class="message {{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+    <h1>Create or Update your feedback</h1>
+    
+    <form method="POST" action="{% if feedback %}{% url 'feedback_edit' feedback.id %}{% else %}{% url 'feedback_create' %}{% endif %}">
+    {% csrf_token %}
+    <div class="form-title">Thank you for sharing your feedback</div>
+
+    <label for="comment">Your Feedback :</label>
+    <textarea id="comment" name="comment" required></textarea>
+
+ <!-- Sélecteur d'emoji directement sous le champ -->
+ <div id="emoji-picker">
+    <span class="emoji">😊</span>
+    <span class="emoji">😂</span>
+    <span class="emoji">❤️</span>
+    <span class="emoji">👍</span>
+    <span class="emoji">😢</span>
+    <span class="emoji">🎉</span>
+    <!-- Ajoutez plus d'emojis selon vos besoins -->
+</div>
+
+
+    <label>Your rating</label>
+    <div class="rating">
+        <input type="radio" name="rating" id="star5" value="5">
+        <label for="star5" title="5 étoiles">★</label>
+
+        <input type="radio" name="rating" id="star4" value="4">
+        <label for="star4" title="4 étoiles">★</label>
+
+        <input type="radio" name="rating" id="star3" value="3">
+        <label for="star3" title="3 étoiles">★</label>
+
+        <input type="radio" name="rating" id="star2" value="2">
+        <label for="star2" title="2 étoiles">★</label>
+
+        <input type="radio" name="rating" id="star1" value="1">
+        <label for="star1" title="1 étoile">★</label>
+    </div>
+
+    <button type="submit" class="submit-button">Confirm</button>
+</form>
+
+<a href="{% url 'all_feedbacks' %}" class="cancel-button">Cancel</a>
+</body>
+</html>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const messages = document.querySelectorAll('.message');
+        messages.forEach(message => {
+            setTimeout(() => {
+                message.style.opacity = '0'; // Fade out
+                setTimeout(() => message.remove(), 500); // Remove from DOM
+            }, 3000); // Message disappears after 3 seconds
+        });
+    });
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const emojiPicker = document.getElementById('emoji-picker');
+    const feedbackInput = document.getElementById('comment');
+
+    // Ajouter l'emoji sélectionné dans le champ de texte
+    emojiPicker.addEventListener('click', (event) => {
+        if (event.target.classList.contains('emoji')) {
+            const emoji = event.target.textContent;
+            const cursorPosition = feedbackInput.selectionStart; // Obtenir la position du curseur
+            const textBeforeCursor = feedbackInput.value.slice(0, cursorPosition);
+            const textAfterCursor = feedbackInput.value.slice(cursorPosition);
+
+            // Insérer l'emoji à la position du curseur
+            feedbackInput.value = textBeforeCursor + emoji + textAfterCursor;
+
+            // Déplacer le curseur après l'emoji inséré
+            feedbackInput.setSelectionRange(cursorPosition + emoji.length, cursorPosition + emoji.length);
+            feedbackInput.focus();
+        }
+    });
+});
+
+
+</script>
+
+
+
+{% endblock %}

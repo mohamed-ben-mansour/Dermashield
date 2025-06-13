@@ -1,0 +1,313 @@
+{% extends 'maintemp/base.html' %}
+ {% block booutons %}
+                        <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="{% url 'home' %}">Home</a>
+                        </li>
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../feedback/all">Feedbacks</a>
+                        </li>-->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../feedback/all" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Feedbacks</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../feedback/all">List</a></li>
+                                 <li><a class="dropdown-item" href="../../feedback/create">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../forums/" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Forum</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../forums/">List</a></li>
+                                <li><a class="dropdown-item" href="../../forums/create/">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../tips">Tips</a>
+                        </li>-->
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="../../tips" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tips</a>
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="../../tips">List</a></li>
+                                <li><a class="dropdown-item" href="../../tips/admin_upload">ADD</a></li>
+                            </ul>
+                        </li>
+
+                        <!--<li class="nav-item dropdown">
+                            <a class="nav-link click-scroll dropdown-toggle" href="#section_5" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">News</a>
+
+                            <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                <li><a class="dropdown-item" href="news.html">News Listing</a></li>
+
+                                <li><a class="dropdown-item" href="news-detail.html">News Detail</a></li>
+                            </ul>
+                        </li>-->
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="../../events/list">Events</a>
+                        </li>
+                        {% if user.is_authenticated %}
+                        <!-- Dynamic Dashboard Link for Logged-In Users -->
+                        <li class="nav-item">
+                            {% if user.is_doctor %}
+                                <a class="nav-link" href="{% url 'doctor_dashboard' %}">Appointments</a>
+                            {% elif user.is_patient %}
+                                <a class="nav-link" href="{% url 'patient_dashboard' %}">Appointments</a>
+                            {% endif %}
+                        </li>
+                    {% else %}
+                        <!-- Redirect to Login Page if User is Not Logged In -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="/users/login/">Appointments</a>
+                        </li>
+                    {% endif %}
+
+                        <li class="nav-item ms-3 d-flex align-items-center">
+    {% if user.is_authenticated %}
+        <a class="nav-link custom-btn custom-border-btn btn" href="/users/logout/">Logout</a>
+        <span class="username-badge2 ms-2">{{ user.username }}</span>
+        <div class="contact-image-wrap2 ms-2">
+            <img src="../../static/temp/images/avatar/studio-portrait-emotional-happy-funny.jpg" class="img-fluid avatar-image2" alt="">
+        </div>
+    {% else %}
+        <a class="nav-link custom-btn custom-border-btn btn" href="/users/login/">Login</a>
+    {% endif %}
+</li>
+                    </ul>
+{% endblock %} 
+{% block content %}
+
+
+    <title>Event Seating</title>
+    <style>
+        /* General Page Styling */
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            color: #A8E6CF; /* Pastel Green Color for Title */
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #666;
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Adds space between the date, start time, and end time */
+        }
+
+        /* Seat Grid Container */
+        .seat-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px auto;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        /* Seat Design */
+        .seat {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            text-align: center;
+            line-height: 40px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        /* Seat States */
+        .available {
+            background-color: #28a745; /* Green for available */
+            color: white;
+        }
+
+        .available:hover {
+            transform: scale(1.1);
+            background-color: #218838;
+        }
+
+        .booked {
+            background-color: #6c757d; /* Gray for booked */
+            color: white;
+            cursor: not-allowed;
+        }
+
+        .selected {
+            background-color: #dc3545; /* Red for selected */
+            color: white;
+            border: 2px solid #900;
+        }
+
+        /* Confirm Booking Button Styling */
+        #book-seat {
+            display: none;
+            background-color: #A2C2E0; /* Pastel Blue Color */
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-family: 'Lora', serif; /* Button font is also Lora */
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        #book-seat:hover {
+            background-color: #88AACC; /* Slightly darker pastel blue on hover */
+            transform: scale(1.05);
+        }
+
+        /* Tooltip for Seat Information */
+        .seat-tooltip {
+            position: relative;
+        }
+
+        .seat-tooltip:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: black;
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        /* Stats Section */
+        .stats {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .stats span {
+            margin-right: 20px;
+        }
+
+        /* Notifications Section */
+        .notifications {
+            background-color: #f9f9f9;
+            padding: 15px;
+            margin-top: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .notifications h3 {
+            font-size: 1.5em;
+            color: #333;
+            text-align: center;
+        }
+
+        .notification-item {
+            background-color: #fff;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .notification-item p {
+            margin: 0;
+            font-size: 1em;
+        }
+
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+    </style>
+
+    <!-- Event Info -->
+    <h1>Event: {{ event.event_title }}</h1>
+    <h2>
+        Date: {{ event.start_date|date:"Y-m-d" }}
+        Start Time: {{ event.start_date|date:"H:i" }}
+        End Time: {{ event.end_date|date:"H:i" }}
+    </h2>
+
+    <!-- Seat Grid -->
+    <div class="seat-container">
+        <!-- Loop through rows -->
+        {% for row in 'ABC' %}
+        <div class="row">
+            <!-- Loop through seats -->
+            {% for seat in seats %}
+            {% if seat.row == row %}
+            <div class="seat seat-tooltip {% if seat.is_booked %}booked{% else %}available{% endif %}"
+            data-seat-id="{{ seat.id }}"
+            data-tooltip="Seat: {{ seat.row }}{{ seat.number }} | {% if seat.is_booked %}Booked{% else %}Available{% endif %}"
+            onclick="selectSeat(this, '{{ seat.id }}')">
+           {{ seat.row }}{{ seat.number }}
+       </div>
+       
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Seat Stats -->
+    <div class="stats">
+        Total Seats: <span id="total-seats">{{ total_seats }}</span> |
+        Available Seats: <span id="available-seats">{{ available_seats }}</span> |
+        Booked Seats: <span id="booked-seats">{{ booked_seats }}</span>
+    </div>
+    
+    <!-- Booking Form -->
+    <form id="booking-form" method="POST" action="">
+        {% csrf_token %}
+        <button type="submit" id="book-seat" style="display: none;">Confirm Booking</button>
+    </form>
+    
+    <script>
+        let selectedSeat = null;
+    
+        function selectSeat(element, seatId) {
+            if (element.classList.contains('booked')) {
+                alert('This seat is already booked.');
+                return;
+            }
+    
+            // Deselect previously selected seat
+            if (selectedSeat) {
+                selectedSeat.classList.remove('selected');
+            }
+    
+            // Highlight the selected seat
+            selectedSeat = element;
+            selectedSeat.classList.add('selected');
+    
+            // Update the form action URL
+            const bookingForm = document.getElementById('booking-form');
+            bookingForm.action = `/events/book-seat/${seatId}/`;
+    
+            // Show the booking button
+            document.getElementById('book-seat').style.display = 'block';
+        }
+    </script>
+
+{% endblock %} 
+
+
+
