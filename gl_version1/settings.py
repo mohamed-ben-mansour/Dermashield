@@ -59,11 +59,6 @@ INSTALLED_APPS = [
     'EventApp',
     'feedback',
     'forum',
-<<<<<<< HEAD
-    'base',
-=======
-    
->>>>>>> main
     'captcha',
     'django.contrib.humanize',
     'counter',
