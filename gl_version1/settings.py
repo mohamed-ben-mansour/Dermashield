@@ -112,12 +112,7 @@ WSGI_APPLICATION = 'gl_version1.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-<<<<<<< HEAD
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-=======
+
 import os  # make sure this is at the top of settings.py
 
 DATABASES = {
@@ -128,16 +123,12 @@ DATABASES = {
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
         'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
         'PORT': os.environ.get('POSTGRES_PORT', '5432'),
->>>>>>> main
+
     }
 }
 
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> main
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -249,8 +240,7 @@ CAPTCHA_TIMEOUT = 300  # 5 minutes
 CSRF_TRUSTED_ORIGINS = [
     'https://*.ngrok-free.app',  # Add your ngrok URL here
 ]
-<<<<<<< HEAD
-=======
+
 # STATIC FILES CONFIG FOR PRODUCTION
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]  # this is your existing folder with media, CSS, etc.
@@ -259,4 +249,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')    # this is where collectst
 # MEDIA FILES
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
->>>>>>> main
+
