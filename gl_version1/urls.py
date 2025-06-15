@@ -28,10 +28,6 @@ urlpatterns = [
     path('feedback/', include('feedback.urls')),
     path('forums/', include('forum.urls')),
     path('user/dashboard',include('main.urls')),
-<<<<<<< HEAD
-    path('chat/',include('base.urls')),
-=======
->>>>>>> main
     path('captcha/', include('captcha.urls')),
     path('calories/', include('counter.urls')),
     path('model/', include('model.urls')),
