@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_IMAGE_NAME = 'benmansourmohamed/django_app_health_devops'
         VPS_IP            = '172.21.3.34'
-        DEPLOY_DIR        = '/mnt/c/Users/ASUS/Desktop/gl_version2.00'
+        DEPLOY_DIR        = '/home/mohamed/gl_version2.00' // Correct VPS Linux path
     }
 
     stages {
@@ -18,23 +18,22 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'Building Docker image (this installs requirements.txt)'
-                bat "wsl docker build -t ${DOCKER_IMAGE_NAME}:${env.BUILD_NUMBER} ."
+                bat "docker build -t %DOCKER_IMAGE_NAME%:%BUILD_NUMBER% ."
             }
         }
 
-stage('Run Unit Tests') {
-    steps {
-        echo 'Running only specific test files inside container'
-        bat """
-        wsl docker run --rm ^
-          -v \$(wslpath -a '%WORKSPACE%'):/app ^
-          -w /app ^
-          ${DOCKER_IMAGE_NAME}:${env.BUILD_NUMBER} ^
-          sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"
-        """
-    }
-}
-
+        stage('Run Unit Tests') {
+            steps {
+                echo 'Running specific test files inside container'
+                bat """
+                docker run --rm ^
+                  -v "%WORKSPACE%:/app" ^
+                  -w /app ^
+                  %DOCKER_IMAGE_NAME%:%BUILD_NUMBER% ^
+                  sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"
+                """
+            }
+        }
 
         stage('Push to Docker Hub') {
             steps {
@@ -43,20 +42,19 @@ stage('Run Unit Tests') {
                     usernameVariable: 'DOCKER_HUB_USERNAME',
                     passwordVariable: 'DOCKER_HUB_PASSWORD'
                 )]) {
-                    bat 'wsl echo %DOCKER_HUB_PASSWORD% | docker login -u %DOCKER_HUB_USERNAME% --password-stdin'
-                    bat "wsl docker push ${DOCKER_IMAGE_NAME}:${env.BUILD_NUMBER}"
+                    bat 'echo %DOCKER_HUB_PASSWORD% | docker login -u %DOCKER_HUB_USERNAME% --password-stdin'
+                    bat "docker push %DOCKER_IMAGE_NAME%:%BUILD_NUMBER%"
                 }
             }
         }
 
         stage('Deploy to VPS') {
             steps {
-                echo 'Deploying to VPS'
+                echo 'Deploying to VPS (via WSL SSH)'
                 sshagent(credentials: ['WSLVPSSSHKey']) {
                     bat """
-                    wsl ssh -o StrictHostKeyChecking=no \
-                      mohamed@${VPS_IP} \
-                      \"cd ${DEPLOY_DIR} && docker-compose pull && docker-compose up -d\"
+                    wsl ssh -o StrictHostKeyChecking=no mohamed@%VPS_IP% \\
+                      "cd ${DEPLOY_DIR} && docker-compose pull && docker-compose up -d"
                     """
                 }
             }
