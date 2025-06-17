@@ -22,18 +22,32 @@ pipeline {
             }
         }
 
-        stage('Run Unit Tests') {
-            steps {
-                echo 'Running specific test files inside container'
-                bat """
-                docker run --rm ^
-                  -v "%WORKSPACE%:/app" ^
-                  -w /app ^
-                  %DOCKER_IMAGE_NAME%:%BUILD_NUMBER% ^
-                  sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"
-                """
-            }
-        }
+        // stage('Run Unit Tests') {
+        //     steps {
+        //         echo 'Running specific test files inside container'
+        //         bat """
+        //         docker run --rm ^
+        //           -v "%WORKSPACE%:/app" ^
+        //           -w /app ^
+        //           %DOCKER_IMAGE_NAME%:%BUILD_NUMBER% ^
+        //           sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"
+        //         """
+        //     }
+        // }
+stage('Run Unit Tests') {
+    steps {
+        echo 'Running tests with PostgreSQL (auto test DB creation and deletion)'
+        bat """
+        docker run --rm ^
+          -e DJANGO_SETTINGS_MODULE=gl_version1.settings ^
+          -v "%WORKSPACE%:/app" ^
+          -w /app ^
+          ${DOCKER_IMAGE_NAME}:${env.BUILD_NUMBER} ^
+          sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"
+        """
+    }
+}
+
 
         stage('Push to Docker Hub') {
             steps {
