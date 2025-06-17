@@ -22,18 +22,19 @@ pipeline {
             }
         }
 
-          // stage('Run Linters & Tests') {
-          //     steps {
-          //         echo 'Running linters and tests inside container'
-          //         bat """
-          //         wsl docker run --rm \
-          //           -v \$(wslpath -a '%WORKSPACE%'):/app \
-          //           -w /app \
-          //           ${DOCKER_IMAGE_NAME}:${env.BUILD_NUMBER} \
-          //           sh -c "flake8 . && black --check . && isort --check-only . && coverage run -m pytest tests/ && coverage report"
-          //         """
-          //     }
-          // }
+stage('Run Unit Tests') {
+    steps {
+        echo 'Running only specific test files inside container'
+        bat """
+        wsl docker run --rm ^
+          -v \$(wslpath -a '%WORKSPACE%'):/app ^
+          -w /app ^
+          ${DOCKER_IMAGE_NAME}:${env.BUILD_NUMBER} ^
+          sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"
+        """
+    }
+}
+
 
         stage('Push to Docker Hub') {
             steps {
