@@ -1,8 +1,9 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
-from .models import Forum, Comment, Response
-from .forms import ForumForm, CommentForm, ResponseForm
+from forum.models import Forum, Comment, Response
+from forum.forms import ForumForm, CommentForm, ResponseForm
+
 
 class ForumViewsTest(TestCase):
     def setUp(self):

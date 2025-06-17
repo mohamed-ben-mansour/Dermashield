@@ -1,7 +1,8 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
-from .models import Feedback
+from feedback.models import Feedback
+
 
 class FeedbackViewsTest(TestCase):
     def setUp(self):
