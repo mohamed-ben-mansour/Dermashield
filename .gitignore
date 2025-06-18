@@ -28,7 +28,7 @@ venv/
 env/
 # DB
 *.sqlite3
-
+*.h5
 # IDE
 .vscode/
 .idea/
