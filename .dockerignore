@@ -39,7 +39,6 @@ htmlcov/
 
 # Optional: dataset files used only during training (REMOVE if needed for inference)
 datasets/
-*.h5
 *.tsv
 *.npy
 *.npz

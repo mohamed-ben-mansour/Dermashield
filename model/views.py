@@ -1,9 +1,9 @@
 import os
 import numpy as np
 import pandas as pd
-import h5py
+# import h5py
 import joblib
-import tensorflow as tf
+# import tensorflow as tf
 from django.shortcuts import render
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
@@ -12,7 +12,7 @@ from .forms import ImageUploadForm, CancerRiskForm
 
 # Directory containing both CNN and RF models
 MODELS_DIR = os.path.join(settings.BASE_DIR, 'model')
-CNN_MODEL_FILE = 'model.h5'
+# CNN_MODEL_FILE = 'model.h5'
 RF_H5_FILE = 'pred.h5'
 RF_JOBLIB_FILE = 'random_forest_model.joblib'
 
