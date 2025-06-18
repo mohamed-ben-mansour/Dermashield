@@ -1,0 +1,48 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.so
+*.log
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Editor and system files
+.DS_Store
+.vscode/
+.idea/
+
+# Git and version control
+.git/
+.gitignore
+
+# Docker junk
+docker-compose.override.yml
+
+# Node modules (if frontend present)
+node_modules/
+
+# OS or temp files
+*.swp
+*.tmp
+*.bak
+
+# Test artifacts
+coverage/
+htmlcov/
+*.cover
+*.pytest_cache/
+*.tox/
+
+# Optional: dataset files used only during training (REMOVE if needed for inference)
+datasets/
+*.h5
+*.tsv
+*.npy
+*.npz
+
+# Do NOT ignore models used in production
+# If you want to ignore training artifacts, keep model/backup separate from model/runtime
