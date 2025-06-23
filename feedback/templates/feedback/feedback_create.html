@@ -136,7 +136,7 @@
             transition: background-color 0.3s;
             text-align: center;
             display: block;
-            margin: 0 auto;
+            margin: 0 auto; 
         }
 
         .submit-button:hover {
@@ -155,7 +155,7 @@
 <body>
     <h1>Créer un Nouveau Feedback</h1>
     
-    <form method="POST" action="{% url 'feedback_create' %}">
+    <form method="POST" action="{% url 'feedback:feedback_create' %}">
         {% csrf_token %}
         <label for="comment">Commentaire:</label>
         <textarea id="comment" name="comment" required></textarea>

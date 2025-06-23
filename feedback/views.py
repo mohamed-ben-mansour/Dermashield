@@ -1,3 +1,4 @@
+
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Feedback
 from .forms import FeedbackForm
@@ -5,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages  # Pour afficher des messages de succès/erreur
 from django.views import View
 from django.core.paginator import Paginator
+app_name = 'feedback'
 
 # Vue pour afficher tous les feedbacks de l'utilisateur connecté
 @login_required

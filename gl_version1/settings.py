@@ -237,6 +237,7 @@ CAPTCHA_TIMEOUT = 300  # 5 minutes
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.ngrok-free.app',  # Add your ngrok URL here
+    "https://localhost",
 ]
 
 # STATIC FILES CONFIG FOR PRODUCTION

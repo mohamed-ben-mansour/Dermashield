@@ -33,7 +33,7 @@ urlpatterns = [
     path('model/', include('model.urls')),
     path('chatbot/', include('chatbot.urls')),  # Add this line
     path('calendar/', include('calendar_integration.urls')),
-    path('emotion/', include('emotion_detection.urls')),
+    # path('emotion/', include('emotion_detection.urls')),
 
     
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
