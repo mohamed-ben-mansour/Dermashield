@@ -71,7 +71,11 @@ stage('Run Unit Tests') {
         stage('Deploy to VPS') {
             steps {
                 echo 'Deploying to VPS (via WSL SSH)'
-                sshagent(credentials: ['WSLVPSSSHKey']) {
+                    withCredentials([sshUserPrivateKey(
+      credentialsId: 'WSLVPSSSHKey',
+      keyFileVariable: 'SSH_KEY_PATH',
+      usernameVariable: 'SSH_USER'
+    )]) {
                     bat """
                     wsl ssh -o StrictHostKeyChecking=no mohamed@%VPS_IP% \\
                       "cd ${DEPLOY_DIR} && docker-compose pull && docker-compose up -d"
