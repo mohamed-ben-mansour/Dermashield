@@ -23,37 +23,15 @@ pipeline {
             }
         }
 
-        // stage('Run Unit Tests') {
-        //     steps {
-        //         echo 'Running specific test files inside container'
-        //         bat """
-        //         docker run --rm ^
-        //           -v "%WORKSPACE%:/app" ^
-        //           -w /app ^
-        //           %DOCKER_IMAGE_NAME%:%BUILD_NUMBER% ^
-        //           sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"
-        //         """
-        //     }
-        // }
-// stage('Run Unit Tests') {
-//     steps {
-//         echo 'Running tests with PostgreSQL (auto test DB creation and deletion)'
-//         bat """
-//         docker run --rm ^
-//           -e DJANGO_SETTINGS_MODULE=gl_version1.settings ^
-//           -v "%WORKSPACE%:/app" ^
-//           -w /app ^
-//           ${DOCKER_IMAGE_NAME}:${env.BUILD_NUMBER} ^
-//           sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"
-//         """
-//     }
-// }
-// stage('Run Unit Tests') {
-//     steps {
-//         echo 'Running tests inside Docker Compose environment'
-//         bat 'docker-compose run --rm web sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"'
-//     }
-// }
+
+    
+
+        stage('Run Unit Tests') {
+            steps {
+                echo 'Running tests inside Docker Compose environment'
+                bat 'docker-compose run --rm web sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"'
+            }
+        }
 
 
 
@@ -70,42 +48,26 @@ pipeline {
                 }
             }
         }
-
-    //     stage('Deploy to VPS') {
-    //         steps {
-    //             echo 'Deploying to VPS (via WSL SSH)'
-    //                 withCredentials([sshUserPrivateKey(
-    //   credentialsId: 'WSLVPSSSHKey',
-    //   keyFileVariable: 'SSH_KEY_PATH',
-    //   usernameVariable: 'SSH_USER'
-    // )]) {
-    //                 bat """
-    //                 wsl ssh -o StrictHostKeyChecking=no mohamed@%VPS_IP% \\
-    //                   "cd ${DEPLOY_DIR} && docker-compose pull && docker-compose up -d"
-    //                 """
-    //             }
-    //         }
-    //     }
-    // }
-stage('Deploy to VPS') {
-    steps {
-        echo 'Deploying to VPS (via WSL SSH)'
-        withCredentials([sshUserPrivateKey(
-            credentialsId: 'WSLVPSSSHKey',
-            keyFileVariable: 'SSH_KEY_PATH',
-            usernameVariable: 'SSH_USER'
-        )]) {
-            bat """
-            wsl ssh -i ${SSH_KEY_PATH} -o StrictHostKeyChecking=no ${SSH_USER}@${VPS_IP} "cd ${DEPLOY_DIR} && docker-compose pull && docker-compose up -d"
-            """
+        stage('Deploy to VPS') {
+            steps {
+                echo 'Deploying to VPS (via WSL SSH)'
+                withCredentials([sshUserPrivateKey(
+                    credentialsId: 'WSLVPSSSHKey',
+                    keyFileVariable: 'SSH_KEY_PATH',
+                    usernameVariable: 'SSH_USER'
+                )]) {
+                    bat """
+                    wsl ssh -i ${SSH_KEY_PATH} -o StrictHostKeyChecking=no ${SSH_USER}@${VPS_IP} "cd ${DEPLOY_DIR} && docker-compose pull && docker-compose up -d"
+                    """
+                }
+            }
         }
-    }
+
+        post {
+            always {
+                echo 'Cleaning workspace'
+                cleanWs()
+            }
+        }
 }
-
-    post {
-        always {
-            echo 'Cleaning workspace'
-            cleanWs()
-        }
-    }
 }
