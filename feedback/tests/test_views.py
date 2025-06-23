@@ -110,9 +110,11 @@ User = get_user_model()
 
 class FeedbackAdminTest(TestCase):
     def setUp(self):
-        # self.admin_user = User.objects.create_user(
-        #     username='user', password='user', is_staff=True, is_superuser=True
-        # )
+        # Create a superuser for testing
+        self.admin_user = User.objects.create_superuser(
+            username='user', password='user', email='admin@example.com'
+        )
+        # Log in as this superuser
         self.client.login(username='user', password='user')
 
     def test_add_feedback_via_admin(self):

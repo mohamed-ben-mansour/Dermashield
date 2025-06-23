@@ -160,10 +160,13 @@ User = get_user_model()
 
 class ForumAdminTest(TestCase):
     def setUp(self):
-        # self.admin_user = User.objects.create_user(
-        #     username='user', password='user', is_staff=True, is_superuser=True
-        # )
+        # Create superuser for testing
+        self.admin_user = User.objects.create_superuser(
+            username='user', password='user', email='admin@example.com'
+        )
+        # Log in with that superuser
         self.client.login(username='user', password='user')
+
 
     def test_add_forum_via_admin(self):
         response = self.client.post('/admin/forum/forum/add/', {
