@@ -21,6 +21,7 @@ services:
     depends_on:
       - db
     environment:
+      DJANGO_SETTINGS_MODULE: gl_version1.settings
       POSTGRES_DB: gl_test
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: bmm22112003
