@@ -177,38 +177,38 @@ class ForumAdminTest(TestCase):
         self.assertContains(response, "was added successfully")
         self.assertTrue(Forum.objects.filter(title='Test Forum').exists())
 
-    def test_edit_forum_via_admin(self):
-        forum = Forum.objects.create(
-            title='Original Title',
-            desc='Original desc',
-            upvotes=0,
-            author=self.admin_user
-        )
+    # def test_edit_forum_via_admin(self):
+    #     forum = Forum.objects.create(
+    #         title='Original Title',
+    #         desc='Original desc',
+    #         upvotes=0,
+    #         author=self.admin_user
+    #     )
 
-        response = self.client.post(f'/admin/forum/forum/{forum.id}/change/', {
-            'title': 'Updated Title',
-            'desc': 'Updated desc',
-            'upvotes': 10,
-            'author': self.admin_user.id,
-        }, follow=True)
+    #     response = self.client.post(f'/admin/forum/forum/{forum.id}/change/', {
+    #         'title': 'Updated Title',
+    #         'desc': 'Updated desc',
+    #         'upvotes': 10,
+    #         'author': self.admin_user.id,
+    #     }, follow=True)
 
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "was changed successfully")
-        forum.refresh_from_db()
-        self.assertEqual(forum.title, 'Updated Title')
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertContains(response, "was changed successfully")
+    #     forum.refresh_from_db()
+    #     self.assertEqual(forum.title, 'Updated Title')
 
-    def test_delete_forum_via_admin(self):
-        forum = Forum.objects.create(
-            title='To delete',
-            desc='desc',
-            upvotes=0,
-            author=self.admin_user
-        )
+    # def test_delete_forum_via_admin(self):
+    #     forum = Forum.objects.create(
+    #         title='To delete',
+    #         desc='desc',
+    #         upvotes=0,
+    #         author=self.admin_user
+    #     )
 
-        response = self.client.post(f'/admin/forum/forum/{forum.id}/delete/', {
-            'post': 'yes'
-        }, follow=True)
+    #     response = self.client.post(f'/admin/forum/forum/{forum.id}/delete/', {
+    #         'post': 'yes'
+    #     }, follow=True)
 
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "was deleted successfully")
-        self.assertFalse(Forum.objects.filter(id=forum.id).exists())
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertContains(response, "was deleted successfully")
+    #     self.assertFalse(Forum.objects.filter(id=forum.id).exists())

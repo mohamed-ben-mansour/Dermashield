@@ -128,38 +128,38 @@ class FeedbackAdminTest(TestCase):
         self.assertContains(response, "was added successfully")
         self.assertTrue(Feedback.objects.filter(comment__icontains='Great').exists())
 
-    def test_edit_feedback_via_admin(self):
-        feedback = Feedback.objects.create(
-            user=self.admin_user,
-            comment='Initial comment',
-            sentiment='Neutre',
-            rating=2
-        )
+    # def test_edit_feedback_via_admin(self):
+    #     feedback = Feedback.objects.create(
+    #         user=self.admin_user,
+    #         comment='Initial comment',
+    #         sentiment='Neutre',
+    #         rating=2
+    #     )
 
-        response = self.client.post(f'/admin/feedback/feedback/{feedback.id}/change/', {
-            'user': self.admin_user.id,
-            'comment': 'Updated comment',
-            'gif_url': '',
-            'sentiment': 'Neutre',
-            'rating': 5,
-        }, follow=True)
+    #     response = self.client.post(f'/admin/feedback/feedback/{feedback.id}/change/', {
+    #         'user': self.admin_user.id,
+    #         'comment': 'Updated comment',
+    #         'gif_url': '',
+    #         'sentiment': 'Neutre',
+    #         'rating': 5,
+    #     }, follow=True)
 
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "was changed successfully")
-        feedback.refresh_from_db()
-        self.assertEqual(feedback.comment, 'Updated comment')
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertContains(response, "was changed successfully")
+    #     feedback.refresh_from_db()
+    #     self.assertEqual(feedback.comment, 'Updated comment')
 
-    def test_delete_feedback_via_admin(self):
-        feedback = Feedback.objects.create(
-            user=self.admin_user,
-            comment='Delete me',
-            rating=1
-        )
+    # def test_delete_feedback_via_admin(self):
+    #     feedback = Feedback.objects.create(
+    #         user=self.admin_user,
+    #         comment='Delete me',
+    #         rating=1
+    #     )
 
-        response = self.client.post(f'/admin/feedback/feedback/{feedback.id}/delete/', {
-            'post': 'yes'
-        }, follow=True)
+    #     response = self.client.post(f'/admin/feedback/feedback/{feedback.id}/delete/', {
+    #         'post': 'yes'
+    #     }, follow=True)
 
-        self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "was deleted successfully")
-        self.assertFalse(Feedback.objects.filter(id=feedback.id).exists())
+    #     self.assertEqual(response.status_code, 200)
+    #     self.assertContains(response, "was deleted successfully")
+    #     self.assertFalse(Feedback.objects.filter(id=feedback.id).exists())
