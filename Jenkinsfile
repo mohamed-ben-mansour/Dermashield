@@ -54,20 +54,7 @@ pipeline {
 //         bat 'docker-compose run --rm web sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"'
 //     }
 // }
-stage('Deploy to VPS') {
-  steps {
-    echo 'Deploying to VPS (via WSL SSH)'
-    withCredentials([sshUserPrivateKey(
-      credentialsId: 'WSLVPSSSHKey',
-      keyFileVariable: 'SSH_KEY_PATH',
-      usernameVariable: 'SSH_USER'
-    )]) {
-      bat """
-      wsl ssh -i ${SSH_KEY_PATH} -o StrictHostKeyChecking=no ${SSH_USER}@${VPS_IP} "cd ${DEPLOY_DIR} && docker-compose pull && docker-compose up -d"
-      """
-    }
-  }
-}
+
 
 
 
@@ -84,22 +71,36 @@ stage('Deploy to VPS') {
             }
         }
 
-        stage('Deploy to VPS') {
-            steps {
-                echo 'Deploying to VPS (via WSL SSH)'
-                    withCredentials([sshUserPrivateKey(
-      credentialsId: 'WSLVPSSSHKey',
-      keyFileVariable: 'SSH_KEY_PATH',
-      usernameVariable: 'SSH_USER'
-    )]) {
-                    bat """
-                    wsl ssh -o StrictHostKeyChecking=no mohamed@%VPS_IP% \\
-                      "cd ${DEPLOY_DIR} && docker-compose pull && docker-compose up -d"
-                    """
-                }
-            }
+    //     stage('Deploy to VPS') {
+    //         steps {
+    //             echo 'Deploying to VPS (via WSL SSH)'
+    //                 withCredentials([sshUserPrivateKey(
+    //   credentialsId: 'WSLVPSSSHKey',
+    //   keyFileVariable: 'SSH_KEY_PATH',
+    //   usernameVariable: 'SSH_USER'
+    // )]) {
+    //                 bat """
+    //                 wsl ssh -o StrictHostKeyChecking=no mohamed@%VPS_IP% \\
+    //                   "cd ${DEPLOY_DIR} && docker-compose pull && docker-compose up -d"
+    //                 """
+    //             }
+    //         }
+    //     }
+    // }
+stage('Deploy to VPS') {
+    steps {
+        echo 'Deploying to VPS (via WSL SSH)'
+        withCredentials([sshUserPrivateKey(
+            credentialsId: 'WSLVPSSSHKey',
+            keyFileVariable: 'SSH_KEY_PATH',
+            usernameVariable: 'SSH_USER'
+        )]) {
+            bat """
+            wsl ssh -i ${SSH_KEY_PATH} -o StrictHostKeyChecking=no ${SSH_USER}@${VPS_IP} "cd ${DEPLOY_DIR} && docker-compose pull && docker-compose up -d"
+            """
         }
     }
+}
 
     post {
         always {
