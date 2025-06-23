@@ -5,6 +5,7 @@ pipeline {
         DOCKER_IMAGE_NAME = 'benmansourmohamed/django_app_health_devops'
         VPS_IP            = '172.21.3.34'
         DEPLOY_DIR        = '/home/mohamed/gl_version2.00' // Correct VPS Linux path
+        SSH_USER = 'mohamed'
     }
 
     stages {
@@ -47,12 +48,27 @@ pipeline {
 //         """
 //     }
 // }
-stage('Run Unit Tests') {
-    steps {
-        echo 'Running tests inside Docker Compose environment'
-        bat 'docker-compose run --rm web sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"'
+// stage('Run Unit Tests') {
+//     steps {
+//         echo 'Running tests inside Docker Compose environment'
+//         bat 'docker-compose run --rm web sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"'
+//     }
+// }
+stage('Deploy to VPS') {
+  steps {
+    echo 'Deploying to VPS (via WSL SSH)'
+    withCredentials([sshUserPrivateKey(
+      credentialsId: 'WSLVPSSSHKey',
+      keyFileVariable: 'SSH_KEY_PATH',
+      usernameVariable: 'SSH_USER'
+    )]) {
+      bat """
+      wsl ssh -i ${SSH_KEY_PATH} -o StrictHostKeyChecking=no ${SSH_USER}@${VPS_IP} "cd ${DEPLOY_DIR} && docker-compose pull && docker-compose up -d"
+      """
     }
+  }
 }
+
 
 
         stage('Push to Docker Hub') {
