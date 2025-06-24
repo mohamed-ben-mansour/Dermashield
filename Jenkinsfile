@@ -27,6 +27,9 @@ pipeline {
     
 
         stage('Run Unit Tests') {
+            environment {
+                IMAGE_TAG = "${BUILD_NUMBER}"
+            }
             steps {
                 echo 'Running tests inside Docker Compose environment'
                 // lahne kolou yaamel cat lel lel test files
