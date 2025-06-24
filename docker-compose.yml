@@ -12,7 +12,7 @@ services:
     #   - '5432:5432'
 
   web:
-    build: .
+    image: benmansourmohamed/django_app_health_devops:${IMAGE_TAG}
     command: python manage.py runserver 0.0.0.0:8000
     # volumes:
     #   - .:/app
