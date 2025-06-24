@@ -58,9 +58,13 @@ pipeline {
                     keyFileVariable: 'SSH_KEY_PATH',
                     usernameVariable: 'SSH_USER'
                 )]) {
-                    bat """
-                    wsl ssh -i ${SSH_KEY_PATH} -o StrictHostKeyChecking=no ${SSH_USER}@${VPS_IP} "cd ${DEPLOY_DIR} && docker-compose pull && docker-compose up -d"
-                    """
+            bat """
+            wsl ssh -i ${SSH_KEY_PATH} -o StrictHostKeyChecking=no ${SSH_USER}@${VPS_IP} \\
+                "echo IMAGE_TAG=${BUILD_NUMBER} > ${DEPLOY_DIR}/.env && \\
+                 cd ${DEPLOY_DIR} && \\
+                 docker-compose pull && \\
+                 docker-compose up -d"
+            """
                 }
             }
         }
