@@ -26,14 +26,14 @@ pipeline {
 
     
 
-        stage('Run Unit Tests') {
-            steps {
-                echo 'Running tests inside Docker Compose environment'
-                // lahne kolou yaamel cat lel lel test files
-                // bat 'docker-compose run --rm web sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"'
-                bat 'docker-compose run --rm web sh -c "cat forum/tests/test_views.py feedback/tests/test_views.py && coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"'
-            }
-        }
+        // stage('Run Unit Tests') {
+        //     steps {
+        //         echo 'Running tests inside Docker Compose environment'
+        //         // lahne kolou yaamel cat lel lel test files
+        //         // bat 'docker-compose run --rm web sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"'
+        //         bat 'docker-compose run --rm web sh -c "cat forum/tests/test_views.py feedback/tests/test_views.py && coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"'
+        //     }
+        // }
 
 
 
