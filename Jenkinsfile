@@ -26,14 +26,14 @@ pipeline {
 
     
 
-        // stage('Run Unit Tests') {
-        //     steps {
-        //         echo 'Running tests inside Docker Compose environment'
-        //         // lahne kolou yaamel cat lel lel test files
-        //         // bat 'docker-compose run --rm web sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"'
-        //         bat 'docker-compose run --rm web sh -c "cat forum/tests/test_views.py feedback/tests/test_views.py && coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"'
-        //     }
-        // }
+        stage('Run Unit Tests') {
+            steps {
+                echo 'Running tests inside Docker Compose environment'
+                // lahne kolou yaamel cat lel lel test files
+                // bat 'docker-compose run --rm web sh -c "coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"'
+                bat 'docker-compose run --rm web sh -c "cat forum/tests/test_views.py feedback/tests/test_views.py && coverage run -m pytest forum/tests/test_views.py feedback/tests/test_views.py && coverage report"'
+            }
+        }
 
 
 
@@ -60,7 +60,7 @@ pipeline {
                 )]) {
             
             bat """
-            wsl ssh -i "%SSH_KEY_PATH%" -o StrictHostKeyChecking=no %SSH_USER%@%VPS_IP% "echo IMAGE_TAG=%BUILD_NUMBER% > ${DEPLOY_DIR}/.env && cd ${DEPLOY_DIR} && docker-compose pull && docker-compose up -d"
+            wsl ssh -i "%SSH_KEY_PATH%" -o StrictHostKeyChecking=no %SSH_USER%@%VPS_IP% "echo IMAGE_TAG=%BUILD_NUMBER% > ${DEPLOY_DIR}/.env && cd ${DEPLOY_DIR} && docker-compose down && docker-compose pull && docker-compose up -d"
             """
                 }
             }
