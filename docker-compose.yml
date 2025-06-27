@@ -45,3 +45,7 @@ services:
       - prometheus
 volumes:
   postgres_data:
+networks:
+  default:
+    external:
+      name: gl_version200_default
