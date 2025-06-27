@@ -68,12 +68,14 @@ INSTALLED_APPS = [
     'calendar_integration',
     'oauth2_provider',
     'emotion_detection',
+    'django_prometheus',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5' 
 CRISPY_TEMPLATE_PACK = 'bootstrap5' 
 
 MIDDLEWARE = [
+    'django_prometheus.middleware.PrometheusBeforeMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -81,6 +83,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_prometheus.middleware.PrometheusAfterMiddleware',
 ]
 
 ROOT_URLCONF = 'gl_version1.urls'

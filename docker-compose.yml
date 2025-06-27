@@ -13,11 +13,13 @@ services:
 
   web:
     image: benmansourmohamed/django_app_health_devops:${IMAGE_TAG}
-    command: python manage.py runserver 0.0.0.0:8000
+    command: python manage.py runserver 127.0.0.1:8000
     # volumes:
     #   - .:/app
-    ports:
-      - '8000:8000'
+    # ports:
+    #   - '8000:8000'
+    expose:
+      - "8000"  # allows Nginx to access it internally
     depends_on:
       - db
     environment:
@@ -28,5 +30,18 @@ services:
       POSTGRES_HOST: db
       # POSTGRES_PORT: 5432
       POSTGRES_TEST_DB: gl_test_test
+    prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
 volumes:
   postgres_data:

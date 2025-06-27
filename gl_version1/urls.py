@@ -33,6 +33,7 @@ urlpatterns = [
     path('model/', include('model.urls')),
     path('chatbot/', include('chatbot.urls')),  # Add this line
     path('calendar/', include('calendar_integration.urls')),
+    path('', include('django_prometheus.urls')),
     # path('emotion/', include('emotion_detection.urls')),
 
     
