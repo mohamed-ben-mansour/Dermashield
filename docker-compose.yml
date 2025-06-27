@@ -47,5 +47,6 @@ volumes:
   postgres_data:
 networks:
   default:
-    external:
-      name: gl_version200_default
+    name: gl_version200_default
+    external: true
+
