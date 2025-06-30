@@ -68,9 +68,30 @@ pipeline {
                 }
             }
         }
+        // New stage: Summarize Jenkins output using Gemini API
+        stage('Summarize Jenkins Output with Gemini') {
+            steps {
+                script {
+                    // Get last 10,000 lines from Jenkins log and save to live_log.txt
+                    def logText = currentBuild.rawBuild.getLog(10000).join("\n")
+                    writeFile file: 'live_log.txt', text: logText
+                }
+                // Use GEMINI_API_KEY stored as Jenkins secret text credential
+                withCredentials([string(credentialsId: 'GEMINI_API_KEY', variable: 'GEMINI_API_KEY')]) {
+                    bat """
+                    call C:\\jenkins_env\\gemini_venv\\Scripts\\activate.bat
+                    set GEMINI_API_KEY=%GEMINI_API_KEY%
+                    python summarize_log.py
+                    """
+                }
+            }
+        }
+            
     }
         post {
             always {
+                // Archive summary.txt so you can download it from Jenkins UI later
+                archiveArtifacts artifacts: 'summary.txt', fingerprint: true
                 echo 'Cleaning workspace'
                 cleanWs()
             }
