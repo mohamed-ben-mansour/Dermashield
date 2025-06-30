@@ -88,15 +88,11 @@ post {
             python summarize_log.py
             """
         }
-    }
-}
 
-        post {
-            always {
                 // Archive summary.txt so you can download it from Jenkins UI later
-                archiveArtifacts artifacts: 'summary.txt', fingerprint: true
-                echo 'Cleaning workspace'
-                cleanWs()
+        archiveArtifacts artifacts: 'summary.txt', fingerprint: true
+        echo 'Cleaning workspace'
+        cleanWs()
             }
         }
 }
